@@ -14,7 +14,7 @@ function initDB(m, client) {
   settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
   settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
   settings.currency ??= 'Yenes'
-  settings.namebot ??= 'ɦʊȶǟօ'
+  settings.namebot ??= 'Hutao'
   settings.botname ??= 'Hu Tao'  
   settings.owner ??= ''
 
