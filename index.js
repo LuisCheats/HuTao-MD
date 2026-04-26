@@ -44,12 +44,12 @@ const { say } = cfonts
 console.log(chalk.magentaBright('\n❀ Iniciando...'))
   say('Hu Tao', {
   align: 'center',           
-  gradient: ['black', 'white'] 
+  gradient: ['gray', 'white'] 
 })
   say('By LuisCheats', {
   font: 'console',
   align: 'center',
-  gradient: ['blue', 'magenta']
+  gradient: ['blue', 'cyan']
 })
 
 const botTypes = [
