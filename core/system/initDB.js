@@ -7,15 +7,15 @@ function initDB(m, client) {
   settings.self ??= false
   settings.prefix ??= ['/', '!', '.', '#']
   settings.commandsejecut ??= isNumber(settings.commandsejecut) ? settings.commandsejecut : 0
-  settings.id ??= '120363402648953286@newsletter'
-  settings.nameid ??= "HuTao WaBot"
+  settings.id ??= '120363401404146384@newsletter'
+  settings.nameid ??= "'ೃ࿔ ყµҡเ ωαɓσƭ'ร - σƒƒเ૮เαℓ ૮ɦαɳɳεℓ .ೃ࿐"
   settings.type ??= 'Owner'
-  settings.link ??= 'https://celest.qzz.io'
-  settings.banner ??= ''
-  settings.icon ??= ''
+  settings.link ??= 'https://api.stellarwa.xyz'
+  settings.banner ??= 'https://cdn.yuki-wabot.my.id/files/tCVD.jpeg'
+  settings.icon ??= 'https://cdn.yuki-wabot.my.id/files/PJDp.jpeg'
   settings.currency ??= 'Yenes'
-  settings.namebot ??= 'Hutao'
-  settings.botname ??= 'Hu Tao'  
+  settings.namebot ??= 'Yuki'
+  settings.botname ??= 'Yuki Suou'  
   settings.owner ??= ''
 
   const user = global.db.data.users[m.sender] ||= {}
