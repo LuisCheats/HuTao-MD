@@ -14,7 +14,7 @@ channel: "",
 github: "https://github.com/LuisCheats"
 }
 global.my = {
-  ch: '120363402648953286@newsletter',
+  ch: '120363427395193986@newsletter',
   name: '𝓗𝓾𝓣𝓪𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵'
 }
 

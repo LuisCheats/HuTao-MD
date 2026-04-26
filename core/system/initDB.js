@@ -7,7 +7,7 @@ function initDB(m, client) {
   settings.self ??= false
   settings.prefix ??= ['/', '!', '.', '#']
   settings.commandsejecut ??= isNumber(settings.commandsejecut) ? settings.commandsejecut : 0
-  settings.id ??= '120363402648953286@newsletter'
+  settings.id ??= '120363427395193986@newsletter'
 settings.nameid ??= "𝓗𝓾𝓣𝓪𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵"
 settings.type ??= 'Owner'
 settings.link ??= 'https://celest.qzz.io'
