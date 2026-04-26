@@ -8,15 +8,15 @@ function initDB(m, client) {
   settings.prefix ??= ['/', '!', '.', '#']
   settings.commandsejecut ??= isNumber(settings.commandsejecut) ? settings.commandsejecut : 0
   settings.id ??= '120363402648953286@newsletter'
-  settings.nameid ??= "HuTao WaBot"
-  settings.type ??= 'Owner'
-  settings.link ??= 'https://celest.qzz.io'
-  settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
-  settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
-  settings.currency ??= 'Yenes'
-  settings.namebot ??= 'Hutao'
-  settings.botname ??= 'Hu Tao'  
-  settings.owner ??= ''
+settings.nameid ??= "𝓗𝓾𝓣𝓪𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵"
+settings.type ??= 'Owner'
+settings.link ??= 'https://celest.qzz.io'
+settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
+settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
+settings.currency ??= 'Yenes'
+settings.namebot ??= 'Hutao'
+settings.botname ??= '𝓗𝓾𝓣𝓪𝓸 - 𝓜𝓓'
+settings.owner ??= ''
 
   const user = global.db.data.users[m.sender] ||= {}
   user.name ??= m.pushName
