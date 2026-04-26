@@ -6,17 +6,16 @@ global.owner = ['50765836410', '50493732693']
 global.botNumber = ''
 
 global.sessionName = 'Sessions/Owner'
-global.version = '^2.0 - Latest'
-global.dev = "© ⍴᥆ᥕᥱrᥱძ ᑲᥡ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"
+global.version = '^1.0 - Beta'
+global.dev = "LuisCheats"
 global.links = {
-api: 'https://api.yuki-wabot.my.id',
+api: 'celest.qzz.io',
 channel: "https://whatsapp.com/channel/0029Vb64nWqLo4hb8cuxe23n",
-github: "https://github.com/iamDestroy/YukiBot-MD",
-gmail: "thekingdestroy507@gmail.com"
+github: "https://github.com/LuisCheats"
 }
 global.my = {
   ch: '120363407128588763@newsletter',
-  name: '🦋 HuTao-proyect 🔥 Oficial chanel'
+  name: ' Hu Tao Oficial Channel'
 }
 
 global.mess = {

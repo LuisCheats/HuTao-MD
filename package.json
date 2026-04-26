@@ -1,6 +1,6 @@
 {
-  "name": "yukiwabot",
-  "version": "3.0",
+  "name": "hutao",
+  "version": "1.0",
   "description": "WhatsApp Bot Multi Device",
   "main": "index.js",
   "type": "module",
@@ -14,7 +14,7 @@
     "bot-wa",
     "multi-device"
   ],
-  "author": "iamDestroy",
+  "author": "LuisCheats",
   "license": "MIT",
   "engines": {
     "node": ">=21.7.3",
