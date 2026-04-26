@@ -11,8 +11,8 @@ function initDB(m, client) {
 settings.nameid ??= "𝓗𝓾𝓣𝓪𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵"
 settings.type ??= 'Owner'
 settings.link ??= 'https://celest.qzz.io'
-settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/2d5e9993fb42119d9c33a11541d6da1a.jpg'
-settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/2d5e9993fb42119d9c33a11541d6da1a.jpg'
+settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/c9eea8487f3eae914bb09b5bd307225d.jpg'
+settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/c9eea8487f3eae914bb09b5bd307225d.jpg'
 settings.currency ??= 'Yenes'
 settings.namebot ??= '𝓗𝓾 𝓣𝓪𝓸 (胡桃)'
 settings.botname ??= '𝓗𝓾𝓣𝓪𝓸 - 𝓜𝓓'
