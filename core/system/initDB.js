@@ -11,10 +11,10 @@ function initDB(m, client) {
   settings.nameid ??= "HuTao WaBot"
   settings.type ??= 'Owner'
   settings.link ??= 'https://celest.qzz.io'
-  settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
-  settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
+  settings.banner ??= ''
+  settings.icon ??= ''
   settings.currency ??= 'Yenes'
-  settings.namebot ??= 'ɦʊȶǟօ'
+  settings.namebot ??= 'Hutao'
   settings.botname ??= 'Hu Tao'  
   settings.owner ??= ''
 
