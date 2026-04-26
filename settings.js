@@ -2,7 +2,7 @@ import fs from 'fs';
 import { watchFile, unwatchFile } from 'fs'
 import { fileURLToPath } from 'url'
 
-global.owner = ['50765836410', '50493732693']
+global.owner = ['50765836410', '']
 global.botNumber = ''
 
 global.sessionName = 'Sessions/Owner'
@@ -10,12 +10,12 @@ global.version = '^1.0 - Beta'
 global.dev = "LuisCheats"
 global.links = {
 api: 'celest.qzz.io',
-channel: "https://whatsapp.com/channel/0029Vb64nWqLo4hb8cuxe23n",
+channel: "",
 github: "https://github.com/LuisCheats"
 }
 global.my = {
-  ch: '120363407128588763@newsletter',
-  name: ' Hu Tao Oficial Channel'
+  ch: '120363402648953286@newsletter',
+  name: '𝓗𝓾𝓣𝓪𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵'
 }
 
 global.mess = {
