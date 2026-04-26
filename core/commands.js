@@ -3,7 +3,7 @@ export const bodyMenu = `> 𖧧 ¡Hola! *@$sender*, Soy *$namebot*, Aquí tienes
 ╭┈ࠢ͜┅ࠦ͜͜╾݊͜─ؕ͜─ׄ͜─֬͜─֟͜─֫͜─ׄ͜─ؕ͜─݊͜┈ࠦ͜┅ࠡ͜͜┈࠭͜͜۰۰͜۰
 │✿ *ᴅᴇᴠᴇʟᴏᴘᴇʀ ::* $owner
 │ꕥ *ᴛʏᴘᴇ ::* $botType
-│⸙ *ᴠᴇʀsɪᴏɴ ::* ^3.0 - Latest
+│⸙ *ᴠᴇʀsɪᴏɴ ::* > 1.0 BETA
 │⚘ *sʏsᴛᴇᴍ/ᴏᴘʀ ::* $device
 │○ *ᴛɪᴍᴇ ::* $tiempo, $tempo
 │𓏸 *ᴜsᴇʀs ::* $users
