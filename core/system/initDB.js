@@ -14,7 +14,7 @@ settings.link ??= 'https://celest.qzz.io'
 settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
 settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/DATABASE/refs/heads/main/1766201596136.jpg'
 settings.currency ??= 'Yenes'
-settings.namebot ??= 'Hutao'
+settings.namebot ??= 'Hu Tao'
 settings.botname ??= '𝓗𝓾𝓣𝓪𝓸 - 𝓜𝓓'
 settings.owner ??= ''
 
