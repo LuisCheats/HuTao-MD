@@ -44,7 +44,7 @@ const { say } = cfonts
 console.log(chalk.magentaBright('\n❀ Iniciando...'))
   say('Hu Tao', {
   align: 'center',           
-  gradient: ['red', 'blue'] 
+  gradient: ['black', 'white'] 
 })
   say('By LuisCheats', {
   font: 'console',
