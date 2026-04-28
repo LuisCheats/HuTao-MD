@@ -1,8 +1,9 @@
 export const bodyMenu = `*︶︶︶ ⊹ ︶︶︶ ୨♡୧ ︶︶︶ ⊹ ︶︶︶*
 
-> 𖧧 ¡Hola! *@$sender*, Soy *$namebot*, Aquí tienes la lista de comandos.
+> Hola *@$sender*, Soy *$namebot*, Aquí tienes la lista de comandos.
 
-︶ ︶ ⏝ ︶ ୨୧ ︶ ⏝ ︶ ︶ 
+*︶︶︶ ⊹ ︶︶︶ ୨୧ ︶︶︶ ⊹ ︶︶︶*
+
 ੈ✿ֵ‧₊˚ ☃️ *ᴅᴇᴠᴇʟᴏᴘᴇʀ ::* $owner
 ੈ✰ֵ‧₊˚ 🎄 *sʏsᴛᴇᴍ ::* $device
 ੈ❀ֵ‧₊˚ 🎅 *ᴜsᴇʀs ::* $users
