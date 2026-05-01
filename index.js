@@ -20,118 +20,87 @@ const log = {
   success: (msg) => console.log(chalk.bgGreen.white.bold(`SUCCESS`), chalk.greenBright(msg)),
   warn: (msg) => console.log(chalk.bgYellowBright.blueBright.bold(`WARNING`), chalk.yellow(msg)),
   warning: (msg) => console.log(chalk.bgYellowBright.red.bold(`WARNING`), chalk.yellow(msg)),
-  error: (msg) => console.log(chalk.bgRed.white.bold(`ERROR`), chalk.redBright(msg))
+  error: (msg) => console.log(chalk.bgRed.white.bold(`ERROR`), chalk.redBright(msg)),
 };
 
-const maxCache = 100;
-let phoneNumber = global.botNumber || "";
-let phoneInput = "";
-const methodCodeQR = process.argv.includes("--qr");
-const methodCode = process.argv.includes("code");
+let phoneNumber = global.botNumber || ""
+let phoneInput = ""
+const methodCodeQR = process.argv.includes("--qr")
+const methodCode = process.argv.includes("--code")
 const DIGITS = (s = "") => String(s).replace(/\D/g, "");
 
 function normalizePhoneForPairing(input) {
   let s = DIGITS(input);
   if (!s) return "";
   if (s.startsWith("0")) s = s.replace(/^0+/, "");
-  if (s.length === 10 && s.startsWith("3")) s = "57" + s;
-  if (s.startsWith("52") && !s.startsWith("521") && s.length >= 12) s = "521" + s.slice(2);
-  if (s.startsWith("54") && !s.startsWith("549") && s.length >= 11) s = "549" + s.slice(2);
+  if (s.length === 10 && s.startsWith("3")) {
+    s = "57" + s;
+  }
+  if (s.startsWith("52") && !s.startsWith("521") && s.length >= 12) {
+    s = "521" + s.slice(2);
+  }
+  if (s.startsWith("54") && !s.startsWith("549") && s.length >= 11) {
+    s = "549" + s.slice(2);
+  }
   return s;
 }
 
 const { say } = cfonts
 console.log(chalk.magentaBright('\n❀ Iniciando...'))
-  say('Hu Tao', {
-  align: 'center',           
-  gradient: ['red', 'blue'] 
+say('KAORUKO', {
+  align: 'center',
+  gradient: ['red', 'blue']
 })
-  say('By LuisCheats', {
+say('Made with love by SEBAS', {
   font: 'console',
   align: 'center',
-  gradient: ['blue', 'cyan']
+  gradient: ['blue', 'magenta']
 })
 
-const botTypes = [
+const BOT_TYPES = [
   { name: 'SubBot', folder: './Sessions/Subs', starter: startSubBot }
-];
+]
 
 if (!fs.existsSync('./tmp')) fs.mkdirSync('./tmp', { recursive: true });
-global.conns = global.conns || [];
-const reconnecting = new Set();
+global.conns = global.conns || []
+const reconnecting = new Set()
 
 async function loadBots() {
-  for (const { name, folder, starter } of botTypes) {
-    if (!fs.existsSync(folder)) continue;
-    const botIds = fs.readdirSync(folder);
+  for (const { name, folder, starter } of BOT_TYPES) {
+    if (!fs.existsSync(folder)) continue
+    const botIds = fs.readdirSync(folder)
     for (const userId of botIds) {
-      const sessionPath = path.join(folder, userId);
-      const credsPath = path.join(sessionPath, 'creds.json');
-      if (!fs.existsSync(credsPath)) continue;
-      if (global.conns.some((conn) => conn.userId === userId)) continue;
-      if (reconnecting.has(userId)) continue;
+      const sessionPath = path.join(folder, userId)
+      const credsPath = path.join(sessionPath, 'creds.json')
+      if (!fs.existsSync(credsPath)) continue
+      if (global.conns.some((conn) => conn.userId === userId)) continue
+      if (reconnecting.has(userId)) continue
       try {
-        reconnecting.add(userId);
-        await starter(null, null, 'Auto reconexión', false, userId, sessionPath);
+        reconnecting.add(userId)
+        await starter(null, null, 'Auto reconexión', false, userId, sessionPath)
       } catch (e) {
-        console.log(chalk.gray(`[ loadBots ] Error iniciando ${name} ${userId}: ${e?.message || e}`));
-      } finally {
-        reconnecting.delete(userId);
+        reconnecting.delete(userId)
       }
-      await new Promise((res) => setTimeout(res, 2500));
+      await new Promise((res) => setTimeout(res, 2500))
     }
   }
-  setTimeout(loadBots, 60 * 1000);
+  setTimeout(loadBots, 60 * 1000)
 }
 
-function cleanCache() {
+(async () => {
+  await loadBots()
+})()
+
+function cleanTmp() {
   try {
-    const tmpFolder = './tmp';
-    if (fs.existsSync(tmpFolder)) {
-      const files = fs.readdirSync(tmpFolder);
-      let cleaned = 0;
-      for (const file of files) {
-        try { fs.unlinkSync(path.join(tmpFolder, file)); cleaned++; } catch {}
-      }
-      if (cleaned > 0) console.log(chalk.gray(`[ 🗑️ ] Cache tmp: ${cleaned} archivos eliminados`));
+    const files = fs.readdirSync('./tmp');
+    for (const file of files) {
+      try { fs.rmSync('./tmp/' + file, { recursive: true, force: true }); } catch {}
     }
-    const sessionsFolder = './Sessions';
-    if (fs.existsSync(sessionsFolder)) {
-      const getFolderSizeMB = (dir) => {
-        let total = 0;
-        for (const file of fs.readdirSync(dir)) {
-          try {
-            const filePath = path.join(dir, file);
-            const stat = fs.statSync(filePath);
-            total += stat.isDirectory() ? getFolderSizeMB(filePath) : stat.size;
-          } catch {}
-        }
-        return total / (1024 * 1024);
-      };
-      const sizeMB = getFolderSizeMB(sessionsFolder);
-      if (sizeMB > maxCache) {
-        console.log(chalk.yellow(`[ ⚠ ] Sessions ${sizeMB.toFixed(1)}MB — limpiando...`));
-        const safeDelete = (dir) => {
-          for (const file of fs.readdirSync(dir)) {
-            const filePath = path.join(dir, file);
-            const stat = fs.statSync(filePath);
-            if (stat.isDirectory()) {
-              safeDelete(filePath);
-            } else if (!file.includes('creds') && !file.startsWith('session-')) {
-              try { fs.unlinkSync(filePath); } catch {}
-            }
-          }
-        };
-        for (const botType of ['Owner', 'Subs']) {
-          const botFolder = path.join(sessionsFolder, botType);
-          if (fs.existsSync(botFolder)) safeDelete(botFolder);
-        }
-      }
-    }
-  } catch (e) {
-    console.error(chalk.red('Error en cleanCache: '), e);
-  }
+    if (files.length > 0) console.log(chalk.gray(`[ ✿  ]  Limpiados ${files.length} archivos temporales de tmp`));
+  } catch {}
 }
+setInterval(cleanTmp, 1 * 60 * 60 * 1000);
 
 let opcion;
 if (methodCodeQR) {
@@ -145,25 +114,24 @@ if (methodCodeQR) {
     opcion = readlineSync.question("--> ");
   }
   if (opcion === "2") {
-    console.log(chalk.bold.redBright(`\nPor favor, Ingrese el número de WhatsApp.\n${chalk.bold.yellowBright("Ejemplo: +57301******")}\n${chalk.bold.magentaBright('---> ')}`));
+    console.log(chalk.bold.redBright(`\nPor favor, Ingrese el número de WhatsApp.\n${chalk.bold.yellowBright("Ejemplo: +57301******")}\n${chalk.bold.magentaBright('---> ')} `));
     phoneInput = readlineSync.question("");
     phoneNumber = normalizePhoneForPairing(phoneInput);
   }
 }
 
-let reconexion = 0;
-const intentos = 15;
 async function startBot() {
-  const { state, saveCreds } = await useMultiFileAuthState(global.sessionName);
-  const { version } = await fetchLatestBaileysVersion();
-  const logger = pino({ level: "silent" });
-  console.info = () => {};
-  console.debug = () => {};
-  const sock = makeWASocket({
+  const { state, saveCreds } = await useMultiFileAuthState(global.sessionName)
+  const { version, isLatest } = await fetchLatestBaileysVersion()
+  const logger = pino({ level: "silent" })
+  console.info = () => {}
+  console.debug = () => {}
+  const browser = typeof Browsers?.macOS === 'function' ? Browsers.macOS('Chrome') : (Browsers?.macOS ?? ['macOS', 'Chrome', '10.15.7'])
+  const clientt = makeWASocket({
     version,
     logger,
     printQRInTerminal: false,
-    browser: Browsers.macOS('Chrome'),
+    browser,
     auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, logger) },
     markOnlineOnConnect: false,
     generateHighQualityLinkPreview: true,
@@ -171,122 +139,119 @@ async function startBot() {
     getMessage: async () => "",
     keepAliveIntervalMs: 45000,
     maxIdleTimeMs: 60000,
-  });
-  global.client = sock;
-  sock.isInit = false;
-  sock.ev.on("creds.update", saveCreds);
-
+  })
+  
+  global.client = clientt;
+  client.isInit = false
+  client.ev.on("creds.update", saveCreds)
   if (opcion === "2" && !fs.existsSync("./Sessions/Owner/creds.json")) {
     setTimeout(async () => {
       try {
         if (!state.creds.registered) {
-          const pairing = await global.client.requestPairingCode(phoneNumber);
-          const codeBot = pairing?.match(/.{1,4}/g)?.join("-") || pairing;
-          console.log(chalk.bold.white(chalk.bgMagenta(`Código de emparejamiento:`)), chalk.bold.white(chalk.white(codeBot)));
+          const pairing = await global.client.requestPairingCode(phoneNumber)
+          const codeBot = pairing?.match(/.{1,4}/g)?.join("-") || pairing
+          console.log(chalk.bold.white(chalk.bgMagenta(`Código de emparejamiento:`)), chalk.bold.white(chalk.white(codeBot)))
         }
       } catch (err) {
-        console.log(chalk.red("Error al generar código:"), err);
+        console.log(chalk.red("Error al generar código:"), err)
       }
-    }, 3000);
+    }, 3000)
   }
-
-  sock.sendText = (jid, text, quoted = "", options) => sock.sendMessage(jid, { text, ...options }, { quoted });
-  sock.ev.on("connection.update", async (update) => {
-    const { qr, connection, lastDisconnect, isNewLogin, receivedPendingNotifications } = update;
+  
+  client.sendText = (jid, text, quoted = "", options) =>
+    client.sendMessage(jid, { text: text, ...options }, { quoted })
+  client.ev.on("connection.update", async (update) => {
+    const { qr, connection, lastDisconnect, isNewLogin, receivedPendingNotifications, } = update
     if (qr != 0 && qr != undefined || methodCodeQR) {
       if (opcion == '1' || methodCodeQR) {
         console.log(chalk.green.bold("[ ✿ ] Escanea este código QR"));
         qrcode.generate(qr, { small: true });
       }
     }
-
+    
     if (connection === "close") {
       const reason = lastDisconnect?.error?.output?.statusCode || 0;
-      if (reason === DisconnectReason.loggedOut) {
-        log.warning("Escanee nuevamente y ejecute...");
-        exec("rm -rf ./Sessions/Owner/*");
-        process.exit(1);
+      if (reason === DisconnectReason.connectionLost) {
+        log.warning("Se perdió la conexión al servidor, intento reconectarme..")
+        startBot()
+      } else if (reason === DisconnectReason.connectionClosed) {
+        log.warning("Conexión cerrada, intentando reconectarse...")
+        startBot()
+      } else if (reason === DisconnectReason.restartRequired) {
+        log.warning("Es necesario reiniciar..")
+        startBot();
+      } else if (reason === DisconnectReason.timedOut) {
+        log.warning("Tiempo de conexión agotado, intentando reconectarse...")
+        startBot()
+      } else if (reason === DisconnectReason.badSession) {
+        log.warning("Eliminar sesión y escanear nuevamente...")
+        startBot()
+      } else if (reason === DisconnectReason.connectionReplaced) {
+        log.warning("Primero cierre la sesión actual...")
+      } else if (reason === DisconnectReason.loggedOut) {
+        log.warning("Escanee nuevamente y ejecute...")
+        exec("rm -rf ./Sessions/Owner/*")
+        process.exit(1)
       } else if (reason === DisconnectReason.forbidden) {
-        log.error("Error de conexión, escanee nuevamente y ejecute...");
-        exec("rm -rf ./Sessions/Owner/*");
+        log.error("Error de conexión, escanee nuevamente y ejecute...")
+        exec("rm -rf ./Sessions/Owner/*")
         process.exit(1);
       } else if (reason === DisconnectReason.multideviceMismatch) {
-        log.warning("Inicia nuevamente");
-        exec("rm -rf ./Sessions/Owner/*");
-        process.exit(0);
-      } else if (reason === DisconnectReason.connectionReplaced) {
-        log.warning("Primero cierre la sesión actual...");
-        return;
+        log.warning("Inicia nuevamente")
+        exec("rm -rf ./Sessions/Owner/*")
+        process.exit(0)
       } else {
-        reconexion++;
-        if (reconexion > intentos) {
-          log.error(`Demasiados reintentos (${intentos}). Reinicia el proceso manualmente.`);
-          process.exit(1);
-        }
-        const delay = Math.min(3000 * reconexion, 30000);
-        if (reason === DisconnectReason.connectionLost) log.warning("Se perdió la conexión al servidor, intento reconectarme..");
-        else if (reason === DisconnectReason.connectionClosed) log.warning("Conexión cerrada, intentando reconectarse...");
-        else if (reason === DisconnectReason.restartRequired) log.warning("Es necesario reiniciar..");
-        else if (reason === DisconnectReason.timedOut) log.warning("Tiempo de conexión agotado, intentando reconectarse...");
-        else if (reason === DisconnectReason.badSession) log.warning("Eliminar sesión y escanear nuevamente...");
-        else log.warning(`Desconexión (${reason}), reconectando...`);
-        setTimeout(startBot, delay);
+        client.end(`Motivo de desconexión desconocido : ${reason}|${connection}`)
       }
     }
-
-    if (connection === "open") {
-      reconexion = 0;
-      const userName = sock.user.name || "Desconocido";
-      console.log(chalk.green.bold(`[ ✿ ]  Conectado a: ${userName}`));
+    if (connection == "open") {
+      const userName = client.user.name || "Desconocido"
+      console.log(chalk.green.bold(`[ ✿ ]  Conectado a: ${userName}`))
     }
-    if (isNewLogin) log.info("Nuevo dispositivo detectado");
-    if (receivedPendingNotifications === true) {
-      log.warn("Por favor espere aproximadamente 1 minuto...");
-      sock.ev.flush();
+    if (isNewLogin) {
+      log.info("Nuevo dispositivo detectado")
+    }
+    if (receivedPendingNotifications == "true") {
+      log.warn("Por favor espere aproximadamente 1 minuto...")
+      client.ev.flush()
     }
   });
-
-  sock.ev.on('messages.upsert', async (chatUpdate) => {
+  
+  let m
+  client.ev.on("messages.upsert", async ({ messages }) => {
     try {
-      const kay = chatUpdate.messages[0];
-      if (!kay?.message) return;
-      if (kay.key?.remoteJid === 'status@broadcast') return;
-      kay.message = Object.keys(kay.message)[0] === 'ephemeralMessage' ? kay.message.ephemeralMessage.message : kay.message;
-      if (kay.key.fromMe && kay.key.id.startsWith('3EB0')) return;
-      const m = await smsg(sock, kay);
-      main(sock, m, chatUpdate);
+      m = messages[0]
+      if (!m.message) return
+      m.message = Object.keys(m.message)[0] === "ephemeralMessage" ? m.message.ephemeralMessage.message : m.message
+      if (m.key && m.key.remoteJid === "status@broadcast") return
+      if (!client.public && !m.key.fromMe && messages.type === "notify") return
+      if (m.key.id.startsWith("BAE5") && m.key.id.length === 16) return
+      m = await smsg(client, m)
+      main(client, m, messages)
     } catch (err) {
-      console.log(log.error('Error:'), err);
+      console.log(err)
     }
-  });
+  })
   try {
-    await events(sock, null);
+    await events(client, m)
   } catch (err) {
-    console.log(chalk.gray(`[ BOT  ]  → ${err}`));
+    console.log(chalk.gray(`[ BOT  ]  → ${err}`))
   }
-
-  sock.decodeJid = (jid) => {
-    if (!jid) return jid;
+  
+  client.decodeJid = (jid) => {
+    if (!jid) return jid
     if (/:\d+@/gi.test(jid)) {
-      const decode = jidDecode(jid) || {};
-      return (decode.user && decode.server && decode.user + "@" + decode.server) || jid;
-    }
-    return jid;
-  };
+      let decode = jidDecode(jid) || {}
+      return ((decode.user && decode.server && decode.user + "@" + decode.server) || jid)
+    } else return jid
+  }
 }
 
-setInterval(cleanCache, 3 * 60 * 60 * 1000);
-cleanCache();
-
 (async () => {
-await loadBots(); 
-})();
-
-(async () => {
-global.loadDatabase()
-console.log(chalk.gray('[ ✿  ]  Base de datos cargada correctamente.'))
-await startBot();
-})();
+  global.loadDatabase()
+  console.log(chalk.gray('[ ✿  ]  Base de datos cargada correctamente.'))
+  await startBot()
+})()
 
 process.on('uncaughtException', (err) => {
   const msg = err?.message || '';
