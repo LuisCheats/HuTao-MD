@@ -2,13 +2,11 @@ export const bodyMenu = `*︶︶︶ ⊹ ︶︶︶ ୨♡୧ ︶︶︶ ⊹ ︶︶
 
 > Hola *@$sender*, Soy *$namebot*, Aquí tienes la lista de comandos.
 
-*︶︶︶ ⊹ ︶︶︶ ୨୧ ︶︶︶ ⊹ ︶︶︶*
-
 ੈ✿ֵ‧₊˚ 🏮 *ᴅᴇᴠᴇʟᴏᴘᴇʀ ::* $owner
 ੈ✰ֵ‧₊˚ 🍁 *sʏsᴛᴇᴍ ::* $device
 ੈ❀ֵ‧₊˚ 🧧 *ᴜsᴇʀs ::* $users
 ੈ❀ֵ‧₊˚ 🍂 *ᴜʀʟ ::* $link
-*───────────୨ৎ─────────*`
+`
 export const menuObject = {
 economia: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *ECONOMY* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos de Economía para ganar dinero y divertirte con tus amigos.
