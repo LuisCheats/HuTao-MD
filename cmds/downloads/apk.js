@@ -6,64 +6,31 @@ export default {
   category: 'download',
   run: async (client, m, args, usedPrefix, command) => {
     if (!args || !args.length) {
-      return m.reply('╭⎯⎯⎯⎯⎯\n│ ⟡ Por favor, ingresa el nombre de la aplicación.\n╰⎯⎯⎯⎯⎯')
+      return m.reply('《✧》 Por favor, ingresa el nombre de la aplicación.')
     }
-
     const query = args.join(' ').trim()
     try {
       const searchA = await search(query)
       if (!searchA || searchA.length === 0) {
-        return m.reply('╭⎯⎯⎯⎯⎯\n│ ⟡ No se encontraron resultados.\n╰⎯⎯⎯⎯⎯')
+        return m.reply('《✧》 No se encontraron resultados.')
       }
-
       const apkInfo = await download(searchA[0].id)
       if (!apkInfo) {
-        return m.reply('╭⎯⎯⎯⎯⎯\n│ ⟡ No se pudo obtener la información de la aplicación.\n╰⎯⎯⎯⎯⎯')
+        return m.reply('《✧》 No se pudo obtener la información de la aplicación.')
       }
-
       const { name, package: id, size, icon, dllink: downloadUrl, lastup } = apkInfo
+      const caption = `✰ ᩧ　𓈒　ׄ　Aptoide 　ׅ　✿\n\n` +
+        `➩ *Nombre ›* ${name}\n` +
+        `❖ *Paquete ›* ${id}\n` +
+        `✿ *Última actualización ›* ${lastup}\n` +
+        `☆ *Tamaño ›* ${size}`
       const sizeBytes = parseSize(size)
-
       if (sizeBytes > 524288000) {
-        return m.reply(
-`╭⎯⎯⎯⎯⎯
-│ ⟡ El archivo es demasiado grande (${size}).
-│ ⟡ Descárgalo directamente desde aquí:
-│ ⟡ ${downloadUrl}
-╰⎯⎯⎯⎯⎯`
-        )
+        return m.reply(`《✧》 El archivo es demasiado grande (${size}).\n> Descárgalo directamente desde aquí:\n${downloadUrl}`)
       }
-
-      const caption =
-`╭⎯⎯⎯⎯⎯⎯⎯⎯⎯
-│ ⟢ 𝗔𝗣𝗞 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 • 𝗔𝗣𝗧𝗢𝗜𝗗𝗘 ⟣
-├────────────────
-│ ⟡ Nombre             :: ${name}
-│ ⡡ Paquete           :: ${id}
-│ ⟡ Última actualización :: ${lastup}
-│ ⡡ Tamaño             :: ${size}
-├────────────────
-│ ⟡ Descarga           :: ${downloadUrl}
-╰⎯⎯⎯⎯⎯⎯⎯⎯⎯`
-
-      await client.sendMessage(
-        m.chat,
-        {
-          document: { url: downloadUrl },
-          mimetype: 'application/vnd.android.package-archive',
-          fileName: `${name}.apk`,
-          caption
-        },
-        { quoted: m }
-      )
-
-    } catch (e) {
-      await m.reply(
-`╭⎯⎯⎯⎯⎯
-│ ⟡ Error al ejecutar ${usedPrefix + command}
-│ ⟡ ${e.message}
-╰⎯⎯⎯⎯⎯`
-      )
+      await client.sendMessage(m.chat, { document: { url: downloadUrl }, mimetype: 'application/vnd.android.package-archive', fileName: `${name}.apk`, caption }, { quoted: m })
+     } catch (e) {
+      await m.reply(`> An unexpected error occurred while executing command *${usedPrefix + command}*. Please try again or contact support if the issue persists.\n> [Error: *${e.message}*]`)
     }
   },
 }
@@ -80,4 +47,3 @@ function parseSize(sizeStr) {
     default: return value
   }
 }
- 
