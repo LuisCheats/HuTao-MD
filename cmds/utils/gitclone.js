@@ -1,70 +1,75 @@
 import fetch from 'node-fetch'
 
-const regex = /^(?:https:\/\/|git@)github\.com\/([^\/]+)\/([^\/]+?)(?:\.git)?$/i
+const regex = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
 
 export default {
-  command: ['gitclone', 'git'],
-  category: 'github',
-  run: async (client, m, args, usedPrefix, command, text) => {
-    if (!text) return client.reply(m.chat, '《✧》 Por favor, proporciona un enlace o nombre del repositorio de GitHub.', m)
+  command: ['gitclone'],
+  category: 'downloader',
+
+  run: async (client, m, args, command, text, usedPrefix) => {
+
+    if (!args[0]) {
+      return m.reply('🌱 Escribe la URL de un repositorio de *GitHub*')
+    }
+
+    if (!regex.test(args[0])) {
+      return m.reply('🌱 Verifica que la *URL* sea de GitHub')
+    }
+
+    const match = args[0].match(regex)
+    if (!match) return m.reply('❌ URL inválida')
+
+    const user = match[1]
+    const repo = match[2].replace(/\.git$/, '')
+
+    const repoUrl = `https://api.github.com/repos/${user}/${repo}`
+    const zipUrl = `https://api.github.com/repos/${user}/${repo}/zipball`
+
     try {
-      await m.react('🕒')
-      let info = ''
-      let image
-      let zipBuffer, zipName
-      let repos = []
-      const match = text.match(regex)
-      if (match) {
-        const [, user, repo] = match
-        const repoRes = await fetch(`https://api.github.com/repos/${user}/${repo}`)
-        const zipRes = await fetch(`https://api.github.com/repos/${user}/${repo}/zipball`)
-        const repoData = await repoRes.json()
-        zipName = zipRes.headers.get('content-disposition')?.match(/filename=(.*)/)?.[1]
-        if (!zipName) zipName = `${repo}-${user}.zip`
-        zipBuffer = Buffer.from(await zipRes.arrayBuffer())
-        repos.push(repoData)
-        image = 'https://cdn.yuki-wabot.my.id/files/MqnN.jpeg'
-      } else {
-        const res = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(text)}`)
-        const json = await res.json()
-        if (!json.items.length) return client.reply(m.chat, '《✧》 No se encontraron resultados.', m)
-        if (json.items.length === 1) {
-          const repo = json.items[0]
-          const zipRes = await fetch(`https://api.github.com/repos/${repo.owner.login}/${repo.name}/zipball`)
-          zipName = zipRes.headers.get('content-disposition')?.match(/filename=(.*)/)?.[1]
-          if (!zipName) zipName = `${repo.name}-${repo.owner.login}.zip`
-          zipBuffer = Buffer.from(await zipRes.arrayBuffer())
-          repos.push(repo)
-          image = Buffer.from(await (await fetch(repo.owner.avatar_url)).arrayBuffer())
-        } else {
-          repos = json.items
-          image = Buffer.from(await (await fetch(repos[0].owner.avatar_url)).arrayBuffer())
-        }
+      await m.reply('🍃 Preparando descarga del repositorio…')
+
+      const [repoRes, zipRes] = await Promise.all([
+        fetch(repoUrl),
+        fetch(zipUrl)
+      ])
+
+      if (!repoRes.ok || !zipRes.ok) {
+        return m.reply('🌿 No se pudo obtener el repositorio')
       }
-      info += repos.map((repo, index) => `✩ Resultado: ${index + 1}
-✩ Creador: ${repo.owner.login}
-✩ Nombre: ${repo.name}
-✩ Creado: ${formatDate(repo.created_at)}
-✩ Actualizado: ${formatDate(repo.updated_at)}
-✩ Visitas: ${repo.watchers}
-✩ Bifurcado: ${repo.forks}
-✩ Estrellas: ${repo.stargazers_count}
-✩ Issues: ${repo.open_issues}
-✩ Descripción: ${repo.description ? repo.description : 'Sin Descripción'}
-✩ Enlace: ${repo.clone_url}`).join('\n────────────────────\n')
-      await client.sendFile(m.chat, image, 'github_info.jpg', info.trim(), m)
-      if (zipBuffer && zipName) {
-        await client.sendFile(m.chat, zipBuffer, zipName, null, m)
-      }
-      await m.react('✔️')
+
+      const repoData = await repoRes.json()
+      const buffer = Buffer.from(await zipRes.arrayBuffer())
+
+      const caption =
+`╭⎯⎯⎯⎯⎯⎯⎯⎯⎯
+│  ⟢ 𝙂𝙄𝙏ℍ𝙐𝘽 𝘿𝙊𝙒𝙉𝙇𝙊𝘼𝘿 ⟣
+├────────────────
+│ ⟡ Nombre      :: ${repo}
+│ ⟡ Autor       :: ${repoData.owner.login}
+│ ⡡ Descripción :: ${repoData.description || 'Sin descripción'}
+├────────────────
+│ ⟡ URL         :: ${args[0]}
+╰⎯⎯⎯⎯⎯⎯⎯⎯⎯`
+
+      await client.sendMessage(
+        m.chat,
+        {
+          document: buffer,
+          fileName: `${repo}.zip`,
+          mimetype: 'application/zip',
+          caption
+        },
+        { quoted: m }
+      )
+
     } catch (e) {
-      await m.react('✖️')
-      return m.reply(`> An unexpected error occurred while executing command *${usedPrefix + command}*. Please try again or contact support if the issue persists.\n> [Error: *${e.message}*]`)
+      console.error(e)
+      m.reply(
+`╭⎯⎯⎯⎯⎯
+│ ⟡ Error al ejecutar ${usedPrefix + command}
+│ ⟡ ${e.message}
+╰⎯⎯⎯⎯⎯`
+      )
     }
   }
-}
-
-function formatDate(n, locale = 'es') {
-  const d = new Date(n)
-  return d.toLocaleDateString(locale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' })
 }
