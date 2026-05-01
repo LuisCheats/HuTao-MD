@@ -18,8 +18,8 @@ const ptvCache = new Map();
 async function toVideoNote(url) {
   if (ptvCache.has(url)) return ptvCache.get(url);
 
-  const tmpIn = `/tmp/ptv_in_${Date.now()}.mp4`;
-  const tmpOut = `/tmp/ptv_out_${Date.now()}.mp4`;
+  const tmpIn = `./tmp/ptv_in_${Date.now()}.mp4`;
+  const tmpOut = `./tmp/ptv_out_${Date.now()}.mp4`;
   try {
     const res = await fetch(url);
     await pipeline(res.body, createWriteStream(tmpIn));
