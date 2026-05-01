@@ -62,7 +62,6 @@ const menuRun = async (client, m, args, usedPrefix, command) => {
       const isOficialBot = botId === global.client.user.id.split(':')[0] + '@s.whatsapp.net';
       const botType = isOficialBot ? 'Principal/Owner' : 'Sub Bot';
       const users = Object.keys(global.db.data.users).length;
-      const device = getDevice(m.key.id);
       const sender = global.db.data.users[m.sender].name;
       const time = client.uptime ? formatearMs(Date.now() - client.uptime) : "Desconocido";
       const input = normalize(args[0] || '');
@@ -94,7 +93,6 @@ const menuRun = async (client, m, args, usedPrefix, command) => {
       const replacements = {
         $owner: owner ? (!isNaN(owner.replace(/@s\.whatsapp\.net$/, '')) ? global.db.data.users[owner]?.name || owner.split('@')[0] : owner) : 'Oculto por privacidad',
         $botType: botType,
-        $device: device,
         $tiempo: tiempo,
         $tempo: tempo,
         $users: users.toLocaleString(),
