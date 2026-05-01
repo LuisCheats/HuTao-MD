@@ -91,7 +91,6 @@ const menuRun = async (client, m, args, usedPrefix, command) => {
         { buttonId: 'menu_all', buttonText: { displayText: '📋 COMPLETO' }, type: 1 }
       ];
       const replacements = {
-        $owner: owner ? (!isNaN(owner.replace(/@s\.whatsapp\.net$/, '')) ? global.db.data.users[owner]?.name || owner.split('@')[0] : owner) : 'Oculto por privacidad',
         $botType: botType,
         $tiempo: tiempo,
         $tempo: tempo,
