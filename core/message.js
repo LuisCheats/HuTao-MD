@@ -8,7 +8,9 @@ import { sizeFormatter } from 'human-readable';
 import util from 'util';
 import * as Jimp from 'jimp';
 import fetch from 'node-fetch';
-import * as FileType from 'file-type';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const fileType = require('file-type');
 import path from 'path';
 import exif from './exif.js';
 import { fileURLToPath } from 'url'
@@ -189,7 +191,7 @@ export function getGroupAdmins(participants) {
 }
 
 export async function fixLid(client, m) {
-  const decodedJid = client.decodeJid((m.fromMe && client.user.id) || m.key.participant || m.chat || '')
+  const decodedJid = client.decodeJid((m.fromMe && client.user?.id) || m.key.participant || m.chat || '')
   const realJid = await resolveLidToRealJid(decodedJid, client, m.chat)
   return realJid
 }
@@ -213,8 +215,8 @@ export async function smsg(client, m, store) {
     return buffer
   }
 
-  const botLid = client.decodeJid(client.user.lid)
-  const botNumber = client.decodeJid(client.user.id)
+  const botLid = client.decodeJid(client.user?.lid)
+  const botNumber = client.decodeJid(client.user?.id)
   let fix = ''
   if (!m) return m
   if (m.key) {
@@ -237,7 +239,7 @@ export async function smsg(client, m, store) {
     m.body = m.message?.conversation || m.msg?.text || m.msg?.conversation || m.msg?.caption || m.msg?.selectedButtonId || m.msg?.singleSelectReply?.selectedRowId || m.msg?.selectedId || m.msg?.contentText || m.msg?.selectedDisplayText || m.msg?.title || m.msg?.name || ''
     m.mentionedJid = m.msg?.contextInfo?.mentionedJid || []
     m.text = m.msg?.text || m.msg?.caption || m.message?.conversation || m.msg?.contentText || m.msg?.selectedDisplayText || m.msg?.title || ''
-    const idBot = client.user.id.split(':')[0] + '@s.whatsapp.net'
+    const idBot = client.user?.id?.split(':')[0] + '@s.whatsapp.net'
     const config = global.db.data.settings[idBot] ||= {}
     const splitter = new GraphemeSplitter()
     let activePrefixes = []
@@ -285,7 +287,7 @@ export async function smsg(client, m, store) {
       if (m.msg?.contextInfo?.participant?.endsWith('@lid'))
         m.msg.contextInfo.participant = m?.metadata?.participants?.find((a) => a.lid === m.msg.contextInfo.participant)?.id || m.msg.contextInfo.participant
       m.quoted.sender = await fixLid2(client, m)
-      m.quoted.fromMe = m.quoted.sender === client.decodeJid(client.user.id)
+      m.quoted.fromMe = m.quoted.sender === client.decodeJid(client.user?.id)
       m.quoted.text = m.quoted.caption || m.quoted.conversation || m.quoted.contentText || m.quoted.selectedDisplayText || m.quoted.title || ''
       m.quoted.msg = extractMessageContent(m.quoted.message[m.quoted.type]) || m.quoted.message[m.quoted.type]
       m.quoted.mentionedJid = m.quoted?.msg?.contextInfo?.mentionedJid || []
@@ -346,7 +348,7 @@ export async function smsg(client, m, store) {
       try {
         if (/^https?:\/\//.test(content)) {
           const data = await axios.get(content, { responseType: 'arraybuffer' })
-          const mime = data.headers['content-type'] || (await FileType.fromBuffer(data.data)).mime
+          const mime = data.headers['content-type'] || (await fileType.fromBuffer(data.data))?.mime
           if (/gif|image|video|audio|pdf|stream/i.test(mime)) {
             return client.sendMedia(chat, data.data, '', caption, quoted, content)
           } else {
@@ -380,7 +382,7 @@ export async function smsg(client, m, store) {
     let res, filename
     const data = Buffer.isBuffer(PATH) ? PATH : PATH instanceof ArrayBuffer ? PATH.toBuffer() : /^data:.*?\/.*?;base64,/i.test(PATH) ? Buffer.from(PATH.split`,`[1], 'base64') : /^https?:\/\//.test(PATH) ? await (res = await fetch(PATH)).buffer() : fs.existsSync(PATH) ? ((filename = PATH), fs.readFileSync(PATH)) : typeof PATH === 'string' ? PATH : Buffer.alloc(0)
     if (!Buffer.isBuffer(data)) throw new TypeError('Result is not a buffer')
-    const type = (await FileType.fromBuffer(data)) || { mime: 'application/octet-stream', ext: '.bin' }
+    const type = (await fileType.fromBuffer(data)) || { mime: "application/octet-stream", ext: '.bin' }
     if (data && saveToFile && !filename)
       ((filename = path.join(__dirname, '../tmp/' + new Date() * 1 + '.' + type.ext)),
         await fs.promises.writeFile(filename, data))
@@ -395,8 +397,8 @@ export async function smsg(client, m, store) {
   }
 
   client.appenTextMessage = async (text, chatUpdate) => {
-    let messages = await generateWAMessage(m.chat, { text: text, mentions: m.mentionedJid }, { userJid: client.user.id, quoted: m.quoted && m.quoted.fakeObj })
-    messages.key.fromMe = areJidsSameUser(m.sender, conn.user.id)
+    let messages = await generateWAMessage(m.chat, { text: text, mentions: m.mentionedJid }, { userJid: client.user?.id, quoted: m.quoted && m.quoted.fakeObj })
+    messages.key.fromMe = areJidsSameUser(m.sender, conn?.user?.id)
     messages.key.id = m.key.id
     messages.pushName = m.pushName
     if (m.isGroup) messages.participant = m.sender
@@ -439,7 +441,7 @@ export async function smsg(client, m, store) {
   } else {
     throw new Error("Ruta o buffer inválido")
   }
-  const type = (await FileType.fromBuffer(buffer)) || { mime: "application/octet-stream", ext: "bin", }
+  const type = (await fileType.fromBuffer(buffer)) || { mime: "application/octet-stream", ext: "bin", }
   let mtype = ""
   let mimetype = options.mimetype || type.mime
   let file = buffer
@@ -522,22 +524,24 @@ export async function smsg(client, m, store) {
     const botname = botSettings.botname || ''
     const botname2 = botSettings.namebot || ''
     const icon = botSettings.banner || ''
-    const canales = Object.entries(global.my)
+    const redes = botSettings.link || 'https://bvh3-industries.vercel.app'
+    const dev = global.dev || '© POWERED (ㅎㅊDEPOOLㅊㅎ)'
+    const canales = Object.entries(global.miku)
   .reduce((acc, [key, value]) => {
     if (key.startsWith('ch')) {
       const index = key.slice(2)
-      const nombre = global.my[`name${index}`];
+      const nombre = global.miku[`name${index}`];
       if (nombre) acc.push({ id: value, nombre })
     }
     return acc
   }, [])
   
-  const canalSeleccionado = canales[Math.floor(Math.random() * canales.length)]
-    const dynamicButtons = buttons.map((btn) => ({ name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: btn[0], id: btn[1] }), contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: canalSeleccionado.id, serverMessageId: '0', newsletterName: canalSeleccionado.nombre, }, externalAdReply: { title: botname, body: dev, mediaType: 1, renderLargerThumbnail: false, previewType: `PHOTO`, thumbnailUrl: icon, sourceUrl: redes, }}}))
+  const canalSeleccionado = canales.length > 0 ? canales[Math.floor(Math.random() * canales.length)] : null
+    const dynamicButtons = buttons.map((btn) => ({ name: 'quick_reply', buttonParamsJson: JSON.stringify({ display_text: btn[0], id: btn[1] }), contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: canalSeleccionado?.id || '', serverMessageId: '0', newsletterName: canalSeleccionado?.nombre || '' }, externalAdReply: { title: botname, body: dev, mediaType: 1, renderLargerThumbnail: false, previewType: `PHOTO`, thumbnailUrl: icon, sourceUrl: redes, }}}))
     if (copy && (typeof copy === 'string' || typeof copy === 'number')) { dynamicButtons.push({ name: 'cta_copy', buttonParamsJson: JSON.stringify({ display_text: 'Copy', copy_code: copy, })}) }
     if (urls && Array.isArray(urls)) { urls.forEach((url) => { dynamicButtons.push({ name: 'cta_url', buttonParamsJson: JSON.stringify({ display_text: url[0], url: url[1], merchant_url: url[1] })}) })}
     const interactiveMessage = { body: { text: text }, footer: { text: footer }, header: { hasMediaAttachment: false, imageMessage: img ? img.imageMessage : null, videoMessage: video ? video.videoMessage : null, }, nativeFlowMessage: { buttons: dynamicButtons, messageParamsJson: '' }}
-    let msgL = generateWAMessageFromContent(jid, { viewOnceMessage: { message: { interactiveMessage }}}, { userJid: client.user.jid, quoted })
+    let msgL = generateWAMessageFromContent(jid, { viewOnceMessage: { message: { interactiveMessage }}}, { userJid: client.user?.jid, quoted })
     client.relayMessage(jid, msgL.message, { messageId: msgL.key.id, ...options })
   }
 
@@ -585,14 +589,14 @@ export async function smsg(client, m, store) {
   }
 
   client.sendContextInfoIndex = async (jid, text = '', options = {}, quoted = null, useQuoted = true, mentionedJid = null, config = {}) => {
-    const botId = client.user.id.split(':')[0] + '@s.whatsapp.net'
+    const botId = client.user?.id?.split(':')[0] + '@s.whatsapp.net'
     const settings = global.db.data.settings[botId] ||= {}
     const banner = config.banner || settings.icon || ''
     const botnam = config.title || settings.botname || ''
     const namebot2 = config.body || settings.namebot || ''
     const canalId = settings.newsletter_id || ''
     const canalName = settings.nameid || ''
-    const sourceUrl = typeof config.redes === 'string' ? config.redes : typeof settings.link === 'string' ? settings.link : 'https://github.com/iamDestroy'
+    const sourceUrl = typeof config.redes === 'string' ? config.redes : typeof settings.link === 'string' ? settings.link : 'https://github.com/Brauliovh3/HATSUNE-MIKU'
     const normalizeJid = (jid) => (jid.includes('@') ? jid : jid + '@s.whatsapp.net')
     const mentions = Array.isArray(mentionedJid) ? mentionedJid.map(normalizeJid) : null
     const content = { extendedTextMessage: { text, contextInfo: { mentionedJid: mentions, forwardingScore: '0', isForwarded: false, forwardedNewsletterMessageInfo: { newsletterJid: canalId, serverMessageId: '0', newsletterName: canalName }, externalAdReply: { title: botnam, body: dev, mediaType: 1, renderLargerThumbnail: false, previewType: 'PHOTO', thumbnailUrl: banner, sourceUrl }}}}
