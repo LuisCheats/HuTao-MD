@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ytDownload, ytSearch } from '../../core/scrapers/youtube.js'
 
 const newsletterJid = '120363427395193986@newsletter'
-const newsletterName = ''
+const newsletterName = '𝓗𝓾𝓣𝓪𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵'
 
 export default {
   command: ['play2', 'mp4', 'ytmp4', 'ytvideo', 'playvideo'],
