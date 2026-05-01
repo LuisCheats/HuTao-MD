@@ -8,7 +8,7 @@ export const bodyMenu = `*︶︶︶ ⊹ ︶︶︶ ୨♡୧ ︶︶︶ ⊹ ︶︶
 ੈ✰ֵ‧₊˚ 🎄 *sʏsᴛᴇᴍ ::* $device
 ੈ❀ֵ‧₊˚ 🎅 *ᴜsᴇʀs ::* $users
 ੈ❀ֵ‧₊˚ ❄️ *ᴜʀʟ ::* $link
-*───────────୨ৎ───────────*`
+*───────────୨ৎ─────────*`
 export const menuObject = {
 economia: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *ECONOMY* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos de Economía para ganar dinero y divertirte con tus amigos.
