@@ -75,7 +75,7 @@ const menuRun = async (client, m, args, usedPrefix, command) => {
       
       const category = `${cat ? ` para \`${cat}\`` : '. *(˶ᵔ ᵕ ᵔ˶)*'}`;
       if (args[0] && !cat) {      
-        return m.reply(` La categoria *${args[0]}* no existe, las categorias disponibles son: *${Object.keys(categoryAliases).join(', ')}*.\n> Para ver la lista completa escribe *${usedPrefix}menu*\n> Para ver los comandos de una categoría escribe *${usedPrefix}menu [categoría]*\n> Ejemplo: *${usedPrefix}menu anime*`);
+        return m.reply(`💙 La categoria *${args[0]}* no existe, las categorias disponibles son: *${Object.keys(categoryAliases).join(', ')}*.\n> Para ver la lista completa escribe *${usedPrefix}menu*\n> Para ver los comandos de una categoría escribe *${usedPrefix}menu [categoría]*\n> Ejemplo: *${usedPrefix}menu anime*`);
       }
       const sections = menuObject;
       const content = cat ? String(sections[cat] || '') : Object.values(sections).map(s => String(s || '')).join('\n\n');
