@@ -16,7 +16,7 @@ settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/upload/refs/head
 settings.currency ??= 'Yenes'
 settings.namebot ??= '𝓗𝓾 𝓣𝓪𝓸 (胡桃)'
 settings.botname ??= '𝓗𝓾𝓣𝓪𝓸 - 𝓜𝓓'
-settings.owner ??= ''
+settings.owner ??= '𝟕𝑵𝒐𝒐𝒏𝒍𝒚'
 
   const user = global.db.data.users[m.sender] ||= {}
   user.name ??= m.pushName
