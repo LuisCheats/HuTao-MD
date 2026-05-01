@@ -5,559 +5,559 @@ export const bodyMenu = `*︶︶︶ ⊹ ︶︶︶ ୨♡୧ ︶︶︶ ⊹ ︶︶
 *︶︶︶ ⊹ ︶︶︶ ୨୧ ︶︶︶ ⊹ ︶︶︶*
 
 ੈ✿ֵ‧₊˚ ☃️ *ᴅᴇᴠᴇʟᴏᴘᴇʀ ::* $owner
-ੈ✰ֵ‧₊˚ 🎄 *sʏsᴛᴇᴍ ::* $device
+ੈ✰ֵ‧₊˚ 🍁 *sʏsᴛᴇᴍ ::* $device
 ੈ❀ֵ‧₊˚ 🎅 *ᴜsᴇʀs ::* $users
 ੈ❀ֵ‧₊˚ ❄️ *ᴜʀʟ ::* $link
 *───────────୨ৎ─────────*`
 export const menuObject = {
 economia: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *ECONOMY* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos de Economía para ganar dinero y divertirte con tus amigos.
-‧₊˚🎄 *::* *$prefixw » $prefixwork » $prefixtrabajar*
+‧₊˚🍁 *::* *$prefixw » $prefixwork » $prefixtrabajar*
 > Ganar coins trabajando.
-‧₊˚🎄 *::* *$prefixbalance » $prefixbal » $prefixcoins* + <mention>
+‧₊˚🍁 *::* *$prefixbalance » $prefixbal » $prefixcoins* + <mention>
 > Ver cuantos coins tienes.
-‧₊˚🎄 *::* *$prefixcoinflip » $prefixflip » $prefixcf* + <cantidad / cara|cruz>
+‧₊˚🍁 *::* *$prefixcoinflip » $prefixflip » $prefixcf* + <cantidad / cara|cruz>
 > Apostar coins en un cara o cruz.
-‧₊˚🎄 *::* *$prefixcrime » $prefixcrimen*
+‧₊˚🍁 *::* *$prefixcrime » $prefixcrimen*
 > Ganar coins rapido.
-‧₊˚🎄 *::* *$prefixdaily » $prefixdiario*
+‧₊˚🍁 *::* *$prefixdaily » $prefixdiario*
 > Reclamar tu recompensa diaria.
-‧₊˚🎄 *::* *$prefixdeposit » $prefixdep » $prefixdepositar » $prefixd* + <cantidad|all>
+‧₊˚🍁 *::* *$prefixdeposit » $prefixdep » $prefixdepositar » $prefixd* + <cantidad|all>
 > Depositar tus coins en el banco.
-‧₊˚🎄 *::* *$prefixeconomyboard » $prefixeboard » $prefixbaltop* + <page>
+‧₊˚🍁 *::* *$prefixeconomyboard » $prefixeboard » $prefixbaltop* + <page>
 > Ver el ranking de usuarios con más coins.
-‧₊˚🎄 *::* *$prefixcasino » $prefixapostar » $prefixslot* + <amount>
+‧₊˚🍁 *::* *$prefixcasino » $prefixapostar » $prefixslot* + <amount>
 > Apostar coins en el casino.
-‧₊˚🎄 *::* *$prefixeconomyinfo » $prefixeinfo*
+‧₊˚🍁 *::* *$prefixeconomyinfo » $prefixeinfo*
 > Ver tu información de economía en el grupo.
-‧₊˚🎄 *::* *$prefixgivecoins » $prefixpay » $prefixcoinsgive* + <cantidad|all / mention>
+‧₊˚🍁 *::* *$prefixgivecoins » $prefixpay » $prefixcoinsgive* + <cantidad|all / mention>
 > Dar coins a un usuario.
-‧₊˚🎄 *::* *$prefixroulette » $prefixrt » $prefixruleta* + <cantidad / red|black|green>
+‧₊˚🍁 *::* *$prefixroulette » $prefixrt » $prefixruleta* + <cantidad / red|black|green>
 > Apostar coins en una ruleta.
-‧₊˚🎄 *::* *$prefixslut » $prefixprostituirse*
+‧₊˚🍁 *::* *$prefixslut » $prefixprostituirse*
 > Ganar coins prostituyéndote.
-‧₊˚🎄 *::* *$prefixsteal » $prefixrobar » $prefixrob* + <mention>
+‧₊˚🍁 *::* *$prefixsteal » $prefixrobar » $prefixrob* + <mention>
 > Intentar robar coins a un usuario.
-‧₊˚🎄 *::* *$prefixwithdraw » $prefixwith » $prefixretirar* + <cantidad|all>
+‧₊˚🍁 *::* *$prefixwithdraw » $prefixwith » $prefixretirar* + <cantidad|all>
 > Retirar tus coins en el banco.
-‧₊˚🎄 *::* *$prefixminar » $prefixmine*
+‧₊˚🍁 *::* *$prefixminar » $prefixmine*
 > Realizar trabajos de minería y ganar coins.
-‧₊˚🎄 *::* *$prefixcofre » $prefixcoffer*
+‧₊˚🍁 *::* *$prefixcofre » $prefixcoffer*
 > Reclamar tu cofre diario.
-‧₊˚🎄 *::* *$prefixweekly » $prefixsemanal*
+‧₊˚🍁 *::* *$prefixweekly » $prefixsemanal*
 > Reclamar tu recompensa semanal.
-‧₊˚🎄 *::* *$prefixmonthly » $prefixmensual*
+‧₊˚🍁 *::* *$prefixmonthly » $prefixmensual*
 > Reclamar tu recompensa mensual.
-‧₊˚🎄 *::* *$prefixaventura » $prefixadventure*
+‧₊˚🍁 *::* *$prefixaventura » $prefixadventure*
 > Ir de Aventuras para ganar coins.
-‧₊˚🎄 *::* *$prefixcurar » $prefixheal*
+‧₊˚🍁 *::* *$prefixcurar » $prefixheal*
 > Curar salud para salir de aventuras.
-‧₊˚🎄 *::* *$prefixcazar » $prefixhunt*
+‧₊˚🍁 *::* *$prefixcazar » $prefixhunt*
 > Cazar animales para ganar coins.
-‧₊˚🎄 *::* *$prefixfish » $prefixpescar*
+‧₊˚🍁 *::* *$prefixfish » $prefixpescar*
 > Ganar coins pescando.
-‧₊˚🎄 *::* *$prefixmazmorra » $prefixdungeon*
+‧₊˚🍁 *::* *$prefixmazmorra » $prefixdungeon*
 > Explorar mazmorras para ganar coins.
-‧₊˚🎄 *::* *$prefixmath » $prefixmates* + <difficulty>
+‧₊˚🍁 *::* *$prefixmath » $prefixmates* + <difficulty>
 > Iniciar un juego de matemáticas.
-‧₊˚🎄 *::* *$prefixppt* + <piedra|papel|tijera>
+‧₊˚🍁 *::* *$prefixppt* + <piedra|papel|tijera>
 > Jugar piedra, papel o tijera con el bot y gana o pierde coins.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 gacha: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *GACHA* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos de Gacha para reclamar y intercambiar personajes.
-‧₊˚🎄 *::* *$prefixbuycharacter » $prefixbuychar » $prefixbuyc* + <waifu>
+‧₊˚🍁 *::* *$prefixbuycharacter » $prefixbuychar » $prefixbuyc* + <waifu>
 > Comprar un personaje en venta.
-‧₊˚🎄 *::* *$prefixcharimage » $prefixwaifuimage » $prefixcimage » $prefixwimage* + <waifu>
+‧₊˚🍁 *::* *$prefixcharimage » $prefixwaifuimage » $prefixcimage » $prefixwimage* + <waifu>
 > Ver una imagen aleatoria de un personaje.
-‧₊˚🎄 *::* *$prefixcharinfo » $prefixwinfo » $prefixwaifuinfo* + <waifu>
+‧₊˚🍁 *::* *$prefixcharinfo » $prefixwinfo » $prefixwaifuinfo* + <waifu>
 > Ver información de un personaje.
-‧₊˚🎄 *::* *$prefixclaim » $prefixc » $prefixreclamar* + <cite / waifu>
+‧₊˚🍁 *::* *$prefixclaim » $prefixc » $prefixreclamar* + <cite / waifu>
 > Reclamar un personaje.
-‧₊˚🎄 *::* *$prefixdelclaimmsg*
+‧₊˚🍁 *::* *$prefixdelclaimmsg*
 > Restablecer el mensaje al reclamar un personaje.
-‧₊˚🎄 *::* *$prefixdeletewaifu » $prefixdelwaifu » $prefixdelchar* + <waifu>
+‧₊˚🍁 *::* *$prefixdeletewaifu » $prefixdelwaifu » $prefixdelchar* + <waifu>
 > Eliminar un personaje reclamado.
-‧₊˚🎄 *::* *$prefixfavoritetop » $prefixfavtop*
+‧₊˚🍁 *::* *$prefixfavoritetop » $prefixfavtop*
 > Ver el top de personajes favoritos.
-‧₊˚🎄 *::* *$prefixgachainfo » $prefixginfo » $prefixinfogacha*
+‧₊˚🍁 *::* *$prefixgachainfo » $prefixginfo » $prefixinfogacha*
 > Ver tu información de gacha.
-‧₊˚🎄 *::* *$prefixgiveallharem* + <mention>
+‧₊˚🍁 *::* *$prefixgiveallharem* + <mention>
 > Regalar todos tus personajes a otro usuario.
-‧₊˚🎄 *::* *$prefixgivechar » $prefixgivewaifu » $prefixregalar* + <waifu / mention>
+‧₊˚🍁 *::* *$prefixgivechar » $prefixgivewaifu » $prefixregalar* + <waifu / mention>
 > Regalar un personaje a otro usuario.
-‧₊˚🎄 *::* *$prefixharem » $prefixwaifus » $prefixclaims* + <mention>
+‧₊˚🍁 *::* *$prefixharem » $prefixwaifus » $prefixclaims* + <mention>
 > Ver tus personajes reclamados.
-‧₊˚🎄 *::* *$prefixharemshop » $prefixtiendawaifus » $prefixwshop* + <page>
+‧₊˚🍁 *::* *$prefixharemshop » $prefixtiendawaifus » $prefixwshop* + <page>
 > Ver los personajes en venta.
-‧₊˚🎄 *::* *$prefixremovesale » $prefixremoverventa* + <waifu>
+‧₊˚🍁 *::* *$prefixremovesale » $prefixremoverventa* + <waifu>
 > Eliminar un personaje en venta.
-‧₊˚🎄 *::* *$prefixrollwaifu » $prefixrw » $prefixroll*
+‧₊˚🍁 *::* *$prefixrollwaifu » $prefixrw » $prefixroll*
 > Waifu o husbando aleatorio.
-‧₊˚🎄 *::* *$prefixsell » $prefixvender* + <value> <waifu>
+‧₊˚🍁 *::* *$prefixsell » $prefixvender* + <value> <waifu>
 > Poner un personaje a la venta.
-‧₊˚🎄 *::* *$prefixserieinfo » $prefixainfo » $prefixanimeinfo* <name>
+‧₊˚🍁 *::* *$prefixserieinfo » $prefixainfo » $prefixanimeinfo* <name>
 > Información de un anime.
-‧₊˚🎄 *::* *$prefixserielist » $prefixslist » $prefixanimelist*
+‧₊˚🍁 *::* *$prefixserielist » $prefixslist » $prefixanimelist*
 > Listar series del bot.
-‧₊˚🎄 *::* *$prefixsetclaimmsg » $prefixsetclaim* + <text>
+‧₊˚🍁 *::* *$prefixsetclaimmsg » $prefixsetclaim* + <text>
 > Modificar el mensaje al reclamar un personaje.
-‧₊˚🎄 *::* *$prefixtrade » $prefixintercambiar* + <tu personaje / personaje 2>
+‧₊˚🍁 *::* *$prefixtrade » $prefixintercambiar* + <tu personaje / personaje 2>
 > Intercambiar un personaje con otro usuario.
-‧₊˚🎄 *::* *$prefixvote » $prefixvotar* + <waifu>
+‧₊˚🍁 *::* *$prefixvote » $prefixvotar* + <waifu>
 > Votar por un personaje para subir su valor.
-‧₊˚🎄 *::* *$prefixwaifusboard » $prefixwaifustop » $prefixtopwaifus » $prefixwtop* + <page>
+‧₊˚🍁 *::* *$prefixwaifusboard » $prefixwaifustop » $prefixtopwaifus » $prefixwtop* + <page>
 > Ver el top de personajes con mayor valor.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 downloads: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *DOWNLOAD* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos de Descargas para descargar archivos de varias fuentes.
-‧₊˚🎄 *::* *$prefixfacebook » $prefixfb* + <url>
+‧₊˚🍁 *::* *$prefixfacebook » $prefixfb* + <url>
 > Descargar un video de Facebook.
-‧₊˚🎄 *::* *$prefixmediafire » $prefixmf* + <url|query>
+‧₊˚🍁 *::* *$prefixmediafire » $prefixmf* + <url|query>
 > Descargar un archivo de MediaFire.
-‧₊˚🎄 *::* *$prefixplay » $prefixmp3 » $prefixplayaudio » $prefixytaudio » $prefixytmp3* + <url|query>
+‧₊˚🍁 *::* *$prefixplay » $prefixmp3 » $prefixplayaudio » $prefixytaudio » $prefixytmp3* + <url|query>
 > Descargar una canción de YouTube.
-‧₊˚🎄 *::* *$prefixpinterest » $prefixpin* + <url|query>
+‧₊˚🍁 *::* *$prefixpinterest » $prefixpin* + <url|query>
 > Buscar y descargar imagenes de Pinterest.
-‧₊˚🎄 *::* *$prefixplay2 » $prefixmp4 » $prefixplayvideo » $prefixytvideo » $prefixytmp4* + <url|query>
+‧₊˚🍁 *::* *$prefixplay2 » $prefixmp4 » $prefixplayvideo » $prefixytvideo » $prefixytmp4* + <url|query>
 > Descargar un vídeo de YouTube.
-‧₊˚🎄 *::* *$prefixreel » $prefixig » $prefixinstagram* + <url>
+‧₊˚🍁 *::* *$prefixreel » $prefixig » $prefixinstagram* + <url>
 > Descargar un reel de Instagram.
-‧₊˚🎄 *::* *$prefixtiktok » $prefixtt* + <url|query>
+‧₊˚🍁 *::* *$prefixtiktok » $prefixtt* + <url|query>
 > Descargar un video de TikTok.
-‧₊˚🎄 *::* *$prefixtwitter » $prefixx* + <url>
+‧₊˚🍁 *::* *$prefixtwitter » $prefixx* + <url>
 > Descargar un video/imagen de Twitter/X.
-‧₊˚🎄 *::* *$prefixytsearch » $prefixsearch* + <query>
+‧₊˚🍁 *::* *$prefixytsearch » $prefixsearch* + <query>
 > Buscar videos de YouTube.
-‧₊˚🎄 *::* *$prefixwagrupos » $prefixgruposwa* + <query>
+‧₊˚🍁 *::* *$prefixwagrupos » $prefixgruposwa* + <query>
 > Buscar grupos de WhatsApp.
-‧₊˚🎄 *::* *$prefiximagen » $prefiximg* + <query>
+‧₊˚🍁 *::* *$prefiximagen » $prefiximg* + <query>
 > Buscar y descargar imagenes de Google.
-‧₊˚🎄 *::* *$prefixaptoide » $prefixapk » $prefixapkdl* + <query>
+‧₊˚🍁 *::* *$prefixaptoide » $prefixapk » $prefixapkdl* + <query>
 > Buscar y descargar aplicaciones de Aptoide.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 profile: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *PROFILES* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos de Perfil para ver y configurar tu perfil.
-‧₊˚🎄 *::* *$prefixprofile » $prefixperfil* + <mention>
+‧₊˚🍁 *::* *$prefixprofile » $prefixperfil* + <mention>
 > Ver tu perfil o el de un usuario.
-‧₊˚🎄 *::* *$prefixleaderboard » $prefixlboard » $prefixlb* + <page>
+‧₊˚🍁 *::* *$prefixleaderboard » $prefixlboard » $prefixlb* + <page>
 > Top de usuarios con más experiencia.
-‧₊˚🎄 *::* *$prefixlevel » $prefixlvl* + <mention>
+‧₊˚🍁 *::* *$prefixlevel » $prefixlvl* + <mention>
 > Ver tu nivel y experiencia actual.
-‧₊˚🎄 *::* *$prefixsetgenre* + <hombre|mujer>
+‧₊˚🍁 *::* *$prefixsetgenre* + <hombre|mujer>
 > Establecer tu genero.
-‧₊˚🎄 *::* *$prefixdelgenre*
+‧₊˚🍁 *::* *$prefixdelgenre*
 > Eliminar tu genero.
-‧₊˚🎄 *::* *$prefixsetbirth* + <dia/mes/año|mes/dia>
+‧₊˚🍁 *::* *$prefixsetbirth* + <dia/mes/año|mes/dia>
 > Establecer tu fecha de cumpleaños.
-‧₊˚🎄 *::* *$prefixdelbirth*
+‧₊˚🍁 *::* *$prefixdelbirth*
 > Borrar tu fecha de cumpleaños.
-‧₊˚🎄 *::* *$prefixsetdescription » $prefixsetdesc* + <text>
+‧₊˚🍁 *::* *$prefixsetdescription » $prefixsetdesc* + <text>
 > Establecer tu descripcion.
-‧₊˚🎄 *::* *$prefixdeldescription » $prefixdeldesc*
+‧₊˚🍁 *::* *$prefixdeldescription » $prefixdeldesc*
 > Eliminar tu descripción de perfil.
-‧₊˚🎄 *::* *$prefixmarry » $prefixcasarse* <mention>
+‧₊˚🍁 *::* *$prefixmarry » $prefixcasarse* <mention>
 > Casarte con alguien.
-‧₊˚🎄 *::* *$prefixdivorce*
+‧₊˚🍁 *::* *$prefixdivorce*
 > Divorciarte de tu pareja.
-‧₊˚🎄 *::* *$prefixsetfavourite » $prefixsetfav* + <waifu>
+‧₊˚🍁 *::* *$prefixsetfavourite » $prefixsetfav* + <waifu>
 > Establecer tu claim favorito.
-‧₊˚🎄 *::* *$prefixdeletefav » $prefixdelfav* + <waifu>
+‧₊˚🍁 *::* *$prefixdeletefav » $prefixdelfav* + <waifu>
 > Borrar tu claim favorito.
-‧₊˚🎄 *::* *$prefixsetpasatiempo » $prefixsethobby* 
+‧₊˚🍁 *::* *$prefixsetpasatiempo » $prefixsethobby* 
 > Establecer tu pasatiempo.
-‧₊˚🎄 *::* *$prefixdelpasatiempo » $prefixremovehobby*
+‧₊˚🍁 *::* *$prefixdelpasatiempo » $prefixremovehobby*
 > Elimina tu pasatiempo del perfil.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 sockets: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *SOCKETS* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos para registrar tu propio bot.
-‧₊˚🎄 *::* *$prefixbotinfo » $prefixinfobot*
+‧₊˚🍁 *::* *$prefixbotinfo » $prefixinfobot*
 > Obtener informacion del bot.
-‧₊˚🎄 *::* *$prefixjoin* + <link>
+‧₊˚🍁 *::* *$prefixjoin* + <link>
 > Unir al bot a un grupo.
-‧₊˚🎄 *::* *$prefixleave » $prefixsalir*
+‧₊˚🍁 *::* *$prefixleave » $prefixsalir*
 > Salir de un grupo.
-‧₊˚🎄 *::* *$prefixlogout*
+‧₊˚🍁 *::* *$prefixlogout*
 > Cerrar sesion del bot.
-‧₊˚🎄 *::* *$prefixself* + <on|off>
+‧₊˚🍁 *::* *$prefixself* + <on|off>
 > Haz privado o público tu bot.
-‧₊˚🎄 *::* *$prefixqr » $prefixcode*
+‧₊˚🍁 *::* *$prefixqr » $prefixcode*
 > Crear un Sub-Bot con un codigo Code.
-‧₊˚🎄 *::* *$prefixreload*
+‧₊˚🍁 *::* *$prefixreload*
 > Recargar la sesion del bot
-‧₊˚🎄 *::* *$prefixsetname » $prefixsetbotname*  + <corto / largo>
+‧₊˚🍁 *::* *$prefixsetname » $prefixsetbotname*  + <corto / largo>
 > Cambiar el nombre del bot.
-‧₊˚🎄 *::* *$prefixsetbanner » setbotbanner*
+‧₊˚🍁 *::* *$prefixsetbanner » setbotbanner*
 > Cambiar el banner del menu.
-‧₊˚🎄 *::* *$prefixseticon » $prefixsetboticon*
+‧₊˚🍁 *::* *$prefixseticon » $prefixsetboticon*
 > Cambiar el icon del bot.
-‧₊˚🎄 *::* *$prefixsetprefix » $prefixsetbotprefix* + <value>
+‧₊˚🍁 *::* *$prefixsetprefix » $prefixsetbotprefix* + <value>
 > Cambiar el prefijo del bot.
-‧₊˚🎄 *::* *$prefixsetcurrency » $prefixsetbotcurrency* + <value>
+‧₊˚🍁 *::* *$prefixsetcurrency » $prefixsetbotcurrency* + <value>
 > Cambiar la moneda del bot.
-‧₊˚🎄 *::* *$prefixsetowner » $prefixsetbotowner* + <mention|number>
+‧₊˚🍁 *::* *$prefixsetowner » $prefixsetbotowner* + <mention|number>
 > Cambiar el dueño del bot.
-‧₊˚🎄 *::* *$prefixsetchannel » $prefixsetbotchannel* + <link>
+‧₊˚🍁 *::* *$prefixsetchannel » $prefixsetbotchannel* + <link>
 > Cambiar el canal del bot.
-‧₊˚🎄 *::* *$prefixsetlink » $prefixsetbotlink* + <link>
+‧₊˚🍁 *::* *$prefixsetlink » $prefixsetbotlink* + <link>
 > Cambiar el enlace del bot.
-‧₊˚🎄 *::* *$prefixsetpfp » $prefixsetimage*
+‧₊˚🍁 *::* *$prefixsetpfp » $prefixsetimage*
 > Cambiar la imagen de perfil.
-‧₊˚🎄 *::* *setstatus* + <value>
+‧₊˚🍁 *::* *setstatus* + <value>
 > Cambiar el estado del bot.
-‧₊˚🎄 *::* *setusername* + <value>
+‧₊˚🍁 *::* *setusername* + <value>
 > Cambiar el nombre de usuario.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 stickers: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *STICKERS* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜
 > ✐ Comandos de *Stickers* para crear y gestionar stickers.
-‧₊˚🎄 *::* *$prefixstickerpack » $prefixspack » $prefixstickers* + <query|url>
+‧₊˚🍁 *::* *$prefixstickerpack » $prefixspack » $prefixstickers* + <query|url>
 > Busca y descarga packs de Stickers.
-‧₊˚🎄 *::* *$prefixdelpack* + <name pack>
+‧₊˚🍁 *::* *$prefixdelpack* + <name pack>
 > Elimina un paquete de stickers.
-‧₊˚🎄 *::* *$prefixdelstickermeta » $prefixdelmeta*
+‧₊˚🍁 *::* *$prefixdelstickermeta » $prefixdelmeta*
 > Restablecer el pack y autor por defecto para tus stickers.
-‧₊˚🎄 *::* *$prefixgetpack » $prefixstickerpack » $prefixpack* + <name pack>
+‧₊˚🍁 *::* *$prefixgetpack » $prefixstickerpack » $prefixpack* + <name pack>
 > Descarga un paquete de stickers.
-‧₊˚🎄 *::* *$prefixnewpack » $prefixnewstickerpack* + <name pack>
+‧₊˚🍁 *::* *$prefixnewpack » $prefixnewstickerpack* + <name pack>
 > Crea un nuevo paquete de stickers.
-‧₊˚🎄 *::* *$prefixsetpackprivate » $prefixsetpackpriv » $prefixpackprivate* + <name pack>
+‧₊˚🍁 *::* *$prefixsetpackprivate » $prefixsetpackpriv » $prefixpackprivate* + <name pack>
 > Establecer un paquete de stickers como privado.
-‧₊˚🎄 *::* *$prefixsetpackpublic » $prefixsetpackpub » $prefixpackpublic* + <name pack>
+‧₊˚🍁 *::* *$prefixsetpackpublic » $prefixsetpackpub » $prefixpackpublic* + <name pack>
 > Establecer un paquete de stickers como público.
-‧₊˚🎄 *::* *$prefixsetstickermeta » $prefixsetmeta* + <autor|pack>
+‧₊˚🍁 *::* *$prefixsetstickermeta » $prefixsetmeta* + <autor|pack>
 > Establecer el pack y autor por defecto para tus stickers.
-‧₊˚🎄 *::* *$prefixsticker » $prefixs* + <cite / image|video>
+‧₊˚🍁 *::* *$prefixsticker » $prefixs* + <cite / image|video>
 > Convertir una imagen/video a sticker.
-‧₊˚🎄 *::* *$prefixsetstickerpackdesc » $prefixsetpackdesc » $prefixpackdesc* + <name pack / desc>
+‧₊˚🍁 *::* *$prefixsetstickerpackdesc » $prefixsetpackdesc » $prefixpackdesc* + <name pack / desc>
 > Establece la descripción de un paquete de stickers.
-‧₊˚🎄 *::* *$prefixsetstickerpackname » $prefixsetpackname » $prefixpackname* + <name pack / new name pack>
+‧₊˚🍁 *::* *$prefixsetstickerpackname » $prefixsetpackname » $prefixpackname* + <name pack / new name pack>
 > Cambia el nombre de un paquete de stickers.
-‧₊˚🎄 *::* *$prefixstickeradd » $prefixaddsticker* + <name pack>
+‧₊˚🍁 *::* *$prefixstickeradd » $prefixaddsticker* + <name pack>
 > Agrega un sticker a un paquete de stickers.
-‧₊˚🎄 *::* *$prefixstickerdel » $prefixdelsticker* + <name pack>
+‧₊˚🍁 *::* *$prefixstickerdel » $prefixdelsticker* + <name pack>
 > Elimina un sticker de un paquete de stickers.
-‧₊˚🎄 *::* *$prefixstickerpacks » $prefixpacklist*
+‧₊˚🍁 *::* *$prefixstickerpacks » $prefixpacklist*
 > Lista de tus paquetes de stickers.
-‧₊˚🎄 *::* *$prefixbrat » $prefixbratv » $prefixqc › $prefixemojimix* + <text|mention>
+‧₊˚🍁 *::* *$prefixbrat » $prefixbratv » $prefixqc › $prefixemojimix* + <text|mention>
 > Crear stickers con texto.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 utils: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *UTILITIES* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜
 > ✐ Comandos de Útilidades.
-‧₊˚🎄 *::* *$prefixmenu » $prefixhelp » $prefixayuda* + <category>
+‧₊˚🍁 *::* *$prefixmenu » $prefixhelp » $prefixayuda* + <category>
 > Ver el menú de comandos.
-‧₊˚🎄 *::* *$prefixbots » $prefixsockets*
+‧₊˚🍁 *::* *$prefixbots » $prefixsockets*
 > Ver el numero de bots activos.
-‧₊˚🎄 *::* *$prefixstatus » $prefixestado*
+‧₊˚🍁 *::* *$prefixstatus » $prefixestado*
 > Ver estado del bot.
-‧₊˚🎄 *::* *$prefixping » $prefixp » $prefixspeed*
+‧₊˚🍁 *::* *$prefixping » $prefixp » $prefixspeed*
 > Medir tiempo de respuesta del bot.
-‧₊˚🎄 *::* *$prefixreport » $prefixreporte* + <error>
+‧₊˚🍁 *::* *$prefixreport » $prefixreporte* + <error>
 > Enviar un mensaje de reporte a los moderadores.
-‧₊˚🎄 *::* *$prefixsug » $prefixsuggest* + <suggest>
+‧₊˚🍁 *::* *$prefixsug » $prefixsuggest* + <suggest>
 > Enviar una sugerencia a los moderadores.
-‧₊˚🎄 *::* *$prefixinvitar » $prefixinvite* + <link>
+‧₊˚🍁 *::* *$prefixinvitar » $prefixinvite* + <link>
 > Invitar el bot a un grupo.
-‧₊˚🎄 *::* *$prefixia » $prefixchatgpt* + <query>
+‧₊˚🍁 *::* *$prefixia » $prefixchatgpt* + <query>
 > Realizar peticiones a chatgpt.
-‧₊˚🎄 *::* *$prefixgetpic » $prefixpfp* + <mention>
+‧₊˚🍁 *::* *$prefixgetpic » $prefixpfp* + <mention>
 > Ver la foto de perfil de un usuario.
-‧₊˚🎄 *::* *$prefixtoimage » $prefixtoimg* + <cite / sticker>
+‧₊˚🍁 *::* *$prefixtoimage » $prefixtoimg* + <cite / sticker>
 > Convertir un sticker/imagen de una vista a imagen.
-‧₊˚🎄 *::* *$prefixtourl* + <cite / image|video>
+‧₊˚🍁 *::* *$prefixtourl* + <cite / image|video>
 > Convierte la imagen en un link.
-‧₊˚🎄 *::* *$prefixsay » $prefixdecir* + <text>
+‧₊˚🍁 *::* *$prefixsay » $prefixdecir* + <text>
 > Repetir un mensaje.
-‧₊˚🎄 *::* *$prefixtrad » $prefixtraducir » $prefixtranslate* + <language / text>
+‧₊˚🍁 *::* *$prefixtrad » $prefixtraducir » $prefixtranslate* + <language / text>
 > Traducir texto al idioma especificado.
-‧₊˚🎄 *::* *$prefixget » $prefixfetch* + <url>
+‧₊˚🍁 *::* *$prefixget » $prefixfetch* + <url>
 > Realizar solicitudes get a páginas web.
-‧₊˚🎄 *::* *$prefixhd » $prefixenhance » $prefixremini* + <cite / image>
+‧₊˚🍁 *::* *$prefixhd » $prefixenhance » $prefixremini* + <cite / image>
 > Mejorar la calidad de una imagen.
-‧₊˚🎄 *::* *$prefixgitclone » $prefixgit* + <url|query>
+‧₊˚🍁 *::* *$prefixgitclone » $prefixgit* + <url|query>
 > Buscar y descargar un repositorio de Github.
-‧₊˚🎄 *::* *inspect » inspeccionar* + <url>
+‧₊˚🍁 *::* *inspect » inspeccionar* + <url>
 > Ver información de grupos/canales de WhatsApp.
-‧₊˚🎄 *::* *$prefixread » $prefixreadviewonce* + <cite / image|video>
+‧₊˚🍁 *::* *$prefixread » $prefixreadviewonce* + <cite / image|video>
 > Convertir imagen/video de una vista a contenido.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 grupo: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *GROUPS* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos para administradores de grupos.
-‧₊˚🎄 *::* *$prefixalerts » $prefixalertas* + <on|off>
+‧₊˚🍁 *::* *$prefixalerts » $prefixalertas* + <on|off>
 > Activar/desactivar las alertas de grupo.
-‧₊˚🎄 *::* *$prefixantilinks » $prefixantienlaces* + <on|off>
+‧₊˚🍁 *::* *$prefixantilinks » $prefixantienlaces* + <on|off>
 > Activar/desactivar el antienlaces.
-‧₊˚🎄 *::* *$prefixbot* + <on|off>
+‧₊˚🍁 *::* *$prefixbot* + <on|off>
 > Activar/desactivar al bot.
-‧₊˚🎄 *::* *$prefixclose » $prefixcerrar* + <time>
+‧₊˚🍁 *::* *$prefixclose » $prefixcerrar* + <time>
 > Cerrar el grupo para que solo los administradores puedan enviar mensajes.
-‧₊˚🎄 *::* *$prefixgp » $prefixgroupinfo*
+‧₊˚🍁 *::* *$prefixgp » $prefixgroupinfo*
 > Informacion del grupo.
-‧₊˚🎄 *::* *$prefixdelwarn* + <mention / number|all>
+‧₊˚🍁 *::* *$prefixdelwarn* + <mention / number|all>
 > Eliminar una advertencia de un miembro del grupo.
-‧₊˚🎄 *::* *$prefixdemote* + <mention>
+‧₊˚🍁 *::* *$prefixdemote* + <mention>
 > Descender a un usuario de administrador.
-‧₊˚🎄 *::* *$prefixeconomy » $prefixeconomia* + <on|off>
+‧₊˚🍁 *::* *$prefixeconomy » $prefixeconomia* + <on|off>
 > Activar/desactivar los comandos de economía
-‧₊˚🎄 *::* *$prefixgacha » $prefixrpg* + <on|off>
+‧₊˚🍁 *::* *$prefixgacha » $prefixrpg* + <on|off>
 > Activar/desactivar los comandos de GACHA
-‧₊˚🎄 *::* *$prefixgoodbye » $prefixdespedida* + <on|off>
+‧₊˚🍁 *::* *$prefixgoodbye » $prefixdespedida* + <on|off>
 > Activar/desactivar la despedida.
-‧₊˚🎄 *::* *$prefixsetgpbaner* + <cite / image>
+‧₊˚🍁 *::* *$prefixsetgpbaner* + <cite / image>
 > Cambiar la imagen del grupo.
-‧₊˚🎄 *::* *$prefixsetgpname* + <value>
+‧₊˚🍁 *::* *$prefixsetgpname* + <value>
 > Cambiar el nombre del grupo.
-‧₊˚🎄 *::* *$prefixsetgpdesc* + <value>
+‧₊˚🍁 *::* *$prefixsetgpdesc* + <value>
 > Cambiar la descripción del grupo.
-‧₊˚🎄 *::* *$prefixkick* + <mention>
+‧₊˚🍁 *::* *$prefixkick* + <mention>
 > Expulsar a un usuario del grupo.
-‧₊˚🎄 *::* *$prefixnsfw* + <on|off>
+‧₊˚🍁 *::* *$prefixnsfw* + <on|off>
 > Activar/desactivar los comandos NSFW
-‧₊˚🎄 *::* *$prefixonlyadmin » $prefixadminonly* + <on|off>
+‧₊˚🍁 *::* *$prefixonlyadmin » $prefixadminonly* + <on|off>
 > Permitir que solo los administradores puedan utilizar los comandos.
-‧₊˚🎄 *::* *$prefixopen » $prefixabrir* + <time>
+‧₊˚🍁 *::* *$prefixopen » $prefixabrir* + <time>
 > Abrir el grupo para que todos los usuarios puedan enviar mensajes.
-‧₊˚🎄 *::* *$prefixpromote* + <mention>
+‧₊˚🍁 *::* *$prefixpromote* + <mention>
 > Ascender a un usuario a administrador.
-‧₊˚🎄 *::* *$prefixsetgoodbye* + <value>
+‧₊˚🍁 *::* *$prefixsetgoodbye* + <value>
 > Establecer un mensaje de despedida personalizado.
-‧₊˚🎄 *::* *$prefixsetprimary* + <mention>
+‧₊˚🍁 *::* *$prefixsetprimary* + <mention>
 > Establece un bot como primario del grupo.
-‧₊˚🎄 *::* *$prefixsetwarnlimit* + <number>
+‧₊˚🍁 *::* *$prefixsetwarnlimit* + <number>
 > Establecer el límite de advertencias para un grupo.
-‧₊˚🎄 *::* *$prefixsetwelcome* + <value>
+‧₊˚🍁 *::* *$prefixsetwelcome* + <value>
 > Establecer un mensaje de bienvenida personalizado.
-‧₊˚🎄 *::* *$prefixtag » $prefixhidetag » $prefixtagall* + <text>
+‧₊˚🍁 *::* *$prefixtag » $prefixhidetag » $prefixtagall* + <text>
 > Envía un mensaje mencionando a todos los usuarios del grupo.
-‧₊˚🎄 *::* *$prefixmsgcount » $prefixcount » $prefixmessages » $prefixmensajes* + <mention / days>
+‧₊˚🍁 *::* *$prefixmsgcount » $prefixcount » $prefixmessages » $prefixmensajes* + <mention / days>
 > Obtener el conteo de mensajes y comandos de un usuario.
-‧₊˚🎄 *::* *$prefixtopcount » $prefixtopmessages » $prefixtopmsgcount » $prefixtopmensajes* + <days>
+‧₊˚🍁 *::* *$prefixtopcount » $prefixtopmessages » $prefixtopmsgcount » $prefixtopmensajes* + <days>
 > Obtener el top de usuarios con más mensajes en el grupo.
-‧₊˚🎄 *::* *$prefixtopinactive » $prefixtopinactivos » $prefixtopinactiveusers* + <days>
+‧₊˚🍁 *::* *$prefixtopinactive » $prefixtopinactivos » $prefixtopinactiveusers* + <days>
 > Obtener el top de usuarios más inactivos en el grupo.
-‧₊˚🎄 *::* *$prefixwarn* + <mention / reason>
+‧₊˚🍁 *::* *$prefixwarn* + <mention / reason>
 > Darle una advertencia a un miembro del grupo.
-‧₊˚🎄 *::* *$prefixwarns* + <mention>
+‧₊˚🍁 *::* *$prefixwarns* + <mention>
 > Ver todas las advertencias de un miembro del grupo.
-‧₊˚🎄 *::* *$prefixwelcome » $prefixbienvenida* + <on|off>
+‧₊˚🍁 *::* *$prefixwelcome » $prefixbienvenida* + <on|off>
 > Activar/desactivar la bienvenida.
-‧₊˚🎄 *::* *$prefixlink » $prefixrevoke*
+‧₊˚🍁 *::* *$prefixlink » $prefixrevoke*
 > Obtener o restablecer el enlace del grupo.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 nsfw: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *NSFW* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos *NSFW* (Contenido para adultos).
-‧₊˚🎄 *::* *$prefixxnxx* + <query|url>
+‧₊˚🍁 *::* *$prefixxnxx* + <query|url>
 > Buscar y descarga videos de XNXX.
-‧₊˚🎄 *::* *$prefixxvideos* + <query|url>
+‧₊˚🍁 *::* *$prefixxvideos* + <query|url>
 > Buscar y descarga videos de XVideos.
-‧₊˚🎄 *::* *$prefixdanbooru » $prefixdbooru* + <tag>
+‧₊˚🍁 *::* *$prefixdanbooru » $prefixdbooru* + <tag>
 > Buscar imágenes en Danbooru.
-‧₊˚🎄 *::* *$prefixgelbooru » $prefixgbooru* + <tag>
+‧₊˚🍁 *::* *$prefixgelbooru » $prefixgbooru* + <tag>
 > Buscar imágenes en Gelbooru.
-‧₊˚🎄 *::* *$prefixrule34 » $prefixr34* + <tag>
+‧₊˚🍁 *::* *$prefixrule34 » $prefixr34* + <tag>
 > Buscar imagenes en Rule34.
-‧₊˚🎄 *::* *$prefixanal » $prefixviolar* + <mention>
+‧₊˚🍁 *::* *$prefixanal » $prefixviolar* + <mention>
 > Hacer un anal.
-‧₊˚🎄 *::* *$prefixblowjob » $prefixmamada » $prefixbj* + <mention>
+‧₊˚🍁 *::* *$prefixblowjob » $prefixmamada » $prefixbj* + <mention>
 > Dar una mamada.
-‧₊˚🎄 *::* *$prefixboobjob* + <mention>
+‧₊˚🍁 *::* *$prefixboobjob* + <mention>
 > Hacer una rusa.
-‧₊˚🎄 *::* *$prefixbondage* + <mention>
+‧₊˚🍁 *::* *$prefixbondage* + <mention>
 > Atar sin escapatoria.
-‧₊˚🎄 *::* *$prefixbukkake* + <mention>
+‧₊˚🍁 *::* *$prefixbukkake* + <mention>
 > Hacer un bukkake.
-‧₊˚🎄 *::* *$prefixcum* + <mention>
+‧₊˚🍁 *::* *$prefixcum* + <mention>
 > Venirse en alguien.
-‧₊˚🎄 *::* *$prefixcummouth* + <mention>
+‧₊˚🍁 *::* *$prefixcummouth* + <mention>
 > Acabar en la boca de alguien.
-‧₊˚🎄 *::* *$prefixcumshot* + <mention>
+‧₊˚🍁 *::* *$prefixcumshot* + <mention>
 > Disparar semen.
-‧₊˚🎄 *::* *$prefixcreampie* + <mention>
+‧₊˚🍁 *::* *$prefixcreampie* + <mention>
 > Dejar un creampie.
-‧₊˚🎄 *::* *$prefixdeepthroat* + <mention>
+‧₊˚🍁 *::* *$prefixdeepthroat* + <mention>
 > Hacer una garganta profunda.
-‧₊˚🎄 *::* *$prefixfacesitting* + <mention>
+‧₊˚🍁 *::* *$prefixfacesitting* + <mention>
 > Sentarse en la cara de alguien.
-‧₊˚🎄 *::* *$prefixfap » $prefixpaja* + <mention>
+‧₊˚🍁 *::* *$prefixfap » $prefixpaja* + <mention>
 > Hacerse una paja.
-‧₊˚🎄 *::* *$prefixfingering* + <mention>
+‧₊˚🍁 *::* *$prefixfingering* + <mention>
 > Meter los dedos.
-‧₊˚🎄 *::* *$prefixfootjob* + <mention>
+‧₊˚🍁 *::* *$prefixfootjob* + <mention>
 > Hacer una paja con los pies.
-‧₊˚🎄 *::* *$prefixfuck » $prefixcoger* + <mention>
+‧₊˚🍁 *::* *$prefixfuck » $prefixcoger* + <mention>
 > Follarte a alguien.
-‧₊˚🎄 *::* *$prefixfutanari » $prefixfuta* + <mention>
+‧₊˚🍁 *::* *$prefixfutanari » $prefixfuta* + <mention>
 > Lo mejor de los dos mundos.
-‧₊˚🎄 *::* *$prefixgrabboobs* + <mention>
+‧₊˚🍁 *::* *$prefixgrabboobs* + <mention>
 > Agarrar tetas.
-‧₊˚🎄 *::* *$prefixgrope* + <mention>
+‧₊˚🍁 *::* *$prefixgrope* + <mention>
 > Manosear a alguien.
-‧₊˚🎄 *::* *$prefixhandjob* + <mention>
+‧₊˚🍁 *::* *$prefixhandjob* + <mention>
 > Hacer una paja.
-‧₊˚🎄 *::* *$prefixlickass* + <mention>
+‧₊˚🍁 *::* *$prefixlickass* + <mention>
 > Lamer un culo.
-‧₊˚🎄 *::* *$prefixlickdick* + <mention>
+‧₊˚🍁 *::* *$prefixlickdick* + <mention>
 > Lamer un pene.
-‧₊˚🎄 *::* *$prefixlickpussy* + <mention>
+‧₊˚🍁 *::* *$prefixlickpussy* + <mention>
 > Lamer un coño.
-‧₊˚🎄 *::* *$prefixorgy » $prefixorgia* + <mention>
+‧₊˚🍁 *::* *$prefixorgy » $prefixorgia* + <mention>
 > Organizar una orgía.
-‧₊˚🎄 *::* *$prefixpegging* + <mention>
+‧₊˚🍁 *::* *$prefixpegging* + <mention>
 > Dar por detrás.
-‧₊˚🎄 *::* *$prefixsixnine » $prefix69* + <mention>
+‧₊˚🍁 *::* *$prefixsixnine » $prefix69* + <mention>
 > Haz un 69 con alguien.
-‧₊˚🎄 *::* *$prefixspank » $prefixnalgada* + <mention>
+‧₊˚🍁 *::* *$prefixspank » $prefixnalgada* + <mention>
 > Dar una nalgada.
-‧₊˚🎄 *::* *$prefixsquirt » $prefixsquirting* + <mention>
+‧₊˚🍁 *::* *$prefixsquirt » $prefixsquirting* + <mention>
 > Tener un squirt.
-‧₊˚🎄 *::* *$prefixsuckboobs* + <mention>
+‧₊˚🍁 *::* *$prefixsuckboobs* + <mention>
 > Chupar tetas.
-‧₊˚🎄 *::* *$prefixthighjob* + <mention>
+‧₊˚🍁 *::* *$prefixthighjob* + <mention>
 > Hacer una entre piernas.
-‧₊˚🎄 *::* *$prefixundress » $prefixencuerar* + <mention>
+‧₊˚🍁 *::* *$prefixundress » $prefixencuerar* + <mention>
 > Desnudar a alguien.
-‧₊˚🎄 *::* *$prefixyaoi* + <mention>
+‧₊˚🍁 *::* *$prefixyaoi* + <mention>
 > Momento muy intenso.
-‧₊˚🎄 *::* *$prefixYuri » $prefixtijeras* + <mention>
+‧₊˚🍁 *::* *$prefixYuri » $prefixtijeras* + <mention>
 > Hacer tijeras.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 anime: `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 *ANIME* 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜
 > ✐ Comandos de reacciones de Anime.
-‧₊˚🎄 *::* *$prefixwaifu » $prefixneko*
+‧₊˚🍁 *::* *$prefixwaifu » $prefixneko*
 > Buscar una waifu aleatoria.
-‧₊˚🎄 *::* *$prefixppcouple » $prefixppcp* 
+‧₊˚🍁 *::* *$prefixppcouple » $prefixppcp* 
 > Generar imágenes para amistades o parejas.
-‧₊˚🎄 *::* *$prefixpeek » $prefixmirar* + <mention>
+‧₊˚🍁 *::* *$prefixpeek » $prefixmirar* + <mention>
 > Mirar a alguien.
-‧₊˚🎄 *::* *$prefixcomfort » $prefixconsolar* + <mention>
+‧₊˚🍁 *::* *$prefixcomfort » $prefixconsolar* + <mention>
 > Consolar a alguien.
-‧₊˚🎄 *::* *$prefixthinkhard » $prefixpensar* + <mention>
+‧₊˚🍁 *::* *$prefixthinkhard » $prefixpensar* + <mention>
 > Pensar intensamente.
-‧₊˚🎄 *::* *$prefixcurious » $prefixcurioso* + <mention>
+‧₊˚🍁 *::* *$prefixcurious » $prefixcurioso* + <mention>
 > Mostrar curiosidad.
-‧₊˚🎄 *::* *$prefixsniff » $prefixoler* + <mention>
+‧₊˚🍁 *::* *$prefixsniff » $prefixoler* + <mention>
 > Oler a alguien.
-‧₊˚🎄 *::* *$prefixstare » $prefixmirar* + <mention>
+‧₊˚🍁 *::* *$prefixstare » $prefixmirar* + <mention>
 > Mirar fijamente.
-‧₊˚🎄 *::* *$prefixtrip » $prefixtropezar* + <mention>
+‧₊˚🍁 *::* *$prefixtrip » $prefixtropezar* + <mention>
 > Tropezar con alguien.
-‧₊˚🎄 *::* *$prefixblowkiss » $prefixbesito* + <mention>
+‧₊˚🍁 *::* *$prefixblowkiss » $prefixbesito* + <mention>
 > Mandar un besito.
-‧₊˚🎄 *::* *$prefixsnuggle » $prefixacurrucar* + <mention>
+‧₊˚🍁 *::* *$prefixsnuggle » $prefixacurrucar* + <mention>
 > Acurrucarse con alguien.
-‧₊˚🎄 *::* *$prefixangry » $prefixenojado* + <mention>
+‧₊˚🍁 *::* *$prefixangry » $prefixenojado* + <mention>
 > Estar enojado.
-‧₊˚🎄 *::* *$prefixbleh » $prefixmeh* + <mention>
+‧₊˚🍁 *::* *$prefixbleh » $prefixmeh* + <mention>
 > Sacar la lengua.
-‧₊˚🎄 *::* *$prefixbored » $prefixaburrido* + <mention>
+‧₊˚🍁 *::* *$prefixbored » $prefixaburrido* + <mention>
 > Estar aburrido.
-‧₊˚🎄 *::* *$prefixclap » $prefixaplaudir* + <mention>
+‧₊˚🍁 *::* *$prefixclap » $prefixaplaudir* + <mention>
 > Aplaudir.
-‧₊˚🎄 *::* *$prefixcoffee » $prefixcafe* + <mention>
+‧₊˚🍁 *::* *$prefixcoffee » $prefixcafe* + <mention>
 > Tomar café.
-‧₊˚🎄 *::* *$prefixcold » $prefixfrio* + <mention>
+‧₊˚🍁 *::* *$prefixcold » $prefixfrio* + <mention>
 > Tener frío.
-‧₊˚🎄 *::* *$prefixsing » $prefixcantar* + <mention>
+‧₊˚🍁 *::* *$prefixsing » $prefixcantar* + <mention>
 > Cantar.
-‧₊˚🎄 *::* *$prefixtickle » $prefixcosquillas* + <mention>
+‧₊˚🍁 *::* *$prefixtickle » $prefixcosquillas* + <mention>
 > Hacer cosquillas.
-‧₊˚🎄 *::* *$prefixscream » $prefixgritar* + <mention>
+‧₊˚🍁 *::* *$prefixscream » $prefixgritar* + <mention>
 > Gritar.
-‧₊˚🎄 *::* *$prefixpush » $prefixempujar* + <mention>
+‧₊˚🍁 *::* *$prefixpush » $prefixempujar* + <mention>
 > Empujar a alguien.
-‧₊˚🎄 *::* *$prefixnope » $prefixno* + <mention>
+‧₊˚🍁 *::* *$prefixnope » $prefixno* + <mention>
 > Negarse a hacer algo.
-‧₊˚🎄 *::* *$prefixjump » $prefixsaltar* + <mention>
+‧₊˚🍁 *::* *$prefixjump » $prefixsaltar* + <mention>
 > Saltar.
-‧₊˚🎄 *::* *$prefixheat » $prefixcalor* + <mention>
+‧₊˚🍁 *::* *$prefixheat » $prefixcalor* + <mention>
 > Tener calor.
-‧₊˚🎄 *::* *$prefixgaming » $prefixjugar* + <mention>
+‧₊˚🍁 *::* *$prefixgaming » $prefixjugar* + <mention>
 > Jugar videojuegos.
-‧₊˚🎄 *::* *$prefixdraw » $prefixdibujar* + <mention>
+‧₊˚🍁 *::* *$prefixdraw » $prefixdibujar* + <mention>
 > Dibujar.
-‧₊˚🎄 *::* *$prefixcall » $prefixllamar* + <mention>
+‧₊˚🍁 *::* *$prefixcall » $prefixllamar* + <mention>
 > Llamar a alguien.
-‧₊˚🎄 *::* *$prefixdramatic » $prefixdrama* + <mention>
+‧₊˚🍁 *::* *$prefixdramatic » $prefixdrama* + <mention>
 > Drama.
-‧₊˚🎄 *::* *$prefixdrunk » $prefixborracho* + <mention>
+‧₊˚🍁 *::* *$prefixdrunk » $prefixborracho* + <mention>
 > Estar borracho.
-‧₊˚🎄 *::* *$prefiximpregnate » $prefixembarazar* + <mention>
+‧₊˚🍁 *::* *$prefiximpregnate » $prefixembarazar* + <mention>
 > Embarazar a alguien.
-‧₊˚🎄 *::* *$prefixkisscheek » $prefixbeso* + <mention>
+‧₊˚🍁 *::* *$prefixkisscheek » $prefixbeso* + <mention>
 > Beso en la mejilla.
-‧₊˚🎄 *::* *$prefixlaugh » $prefixreir* + <mention>
+‧₊˚🍁 *::* *$prefixlaugh » $prefixreir* + <mention>
 > Reírse de alguien.
-‧₊˚🎄 *::* *$prefixlove » $prefixamor* + <mention>
+‧₊˚🍁 *::* *$prefixlove » $prefixamor* + <mention>
 > Sentirse enamorado.
-‧₊˚🎄 *::* *$prefixpout » $prefixmueca* + <mention>
+‧₊˚🍁 *::* *$prefixpout » $prefixmueca* + <mention>
 > Hacer pucheros.
-‧₊˚🎄 *::* *$prefixpunch » $prefixgolpear* + <mention>
+‧₊˚🍁 *::* *$prefixpunch » $prefixgolpear* + <mention>
 > Dar un puñetazo.
-‧₊˚🎄 *::* *$prefixrun » $prefixcorrer* + <mention>
+‧₊˚🍁 *::* *$prefixrun » $prefixcorrer* + <mention>
 > Correr.
-‧₊˚🎄 *::* *$prefixsad » $prefixtriste* + <mention>
+‧₊˚🍁 *::* *$prefixsad » $prefixtriste* + <mention>
 > Expresar tristeza.
-‧₊˚🎄 *::* *$prefixscared » $prefixasustado* + <mention>
+‧₊˚🍁 *::* *$prefixscared » $prefixasustado* + <mention>
 > Estar asustado.
-‧₊˚🎄 *::* *$prefixseduce » $prefixseducir* + <mention>
+‧₊˚🍁 *::* *$prefixseduce » $prefixseducir* + <mention>
 > Seducir a alguien.
-‧₊˚🎄 *::* *$prefixshy » $prefixtimido* + <mention>
+‧₊˚🍁 *::* *$prefixshy » $prefixtimido* + <mention>
 > Sentir timidez.
-‧₊˚🎄 *::* *$prefixsleep » $prefixdormir* + <mention>
+‧₊˚🍁 *::* *$prefixsleep » $prefixdormir* + <mention>
 > Tumbarse a dormir.
-‧₊˚🎄 *::* *$prefixsmoke » $prefixfumar* + <mention>
+‧₊˚🍁 *::* *$prefixsmoke » $prefixfumar* + <mention>
 > Fumar.
-‧₊˚🎄 *::* *$prefixspit » $prefixescupir* + <mention>
+‧₊˚🍁 *::* *$prefixspit » $prefixescupir* + <mention>
 > Escupir.
-‧₊˚🎄 *::* *$prefixstep » $prefixpisar* + <mention>
+‧₊˚🍁 *::* *$prefixstep » $prefixpisar* + <mention>
 > Pisar a alguien.
-‧₊˚🎄 *::* *$prefixthink » $prefixpensar* + <mention>
+‧₊˚🍁 *::* *$prefixthink » $prefixpensar* + <mention>
 > Pensar en algo.
-‧₊˚🎄 *::* *$prefixwalk » $prefixcaminar* + <mention>
+‧₊˚🍁 *::* *$prefixwalk » $prefixcaminar* + <mention>
 > Caminar.
-‧₊˚🎄 *::* *$prefixhug » $prefixabrazar* + <mention>
+‧₊˚🍁 *::* *$prefixhug » $prefixabrazar* + <mention>
 > Dar un abrazo.
-‧₊˚🎄 *::* *$prefixkill » $prefixmatar* + <mention>
+‧₊˚🍁 *::* *$prefixkill » $prefixmatar* + <mention>
 > Toma tu arma y mata a alguien.
-‧₊˚🎄 *::* *$prefixeat » $prefixnom » $prefixcomer* + <mention>
+‧₊˚🍁 *::* *$prefixeat » $prefixnom » $prefixcomer* + <mention>
 > Comer algo delicioso.
-‧₊˚🎄 *::* *$prefixkiss » $prefixmuak* + <mention>
+‧₊˚🍁 *::* *$prefixkiss » $prefixmuak* + <mention>
 > Dar un beso.
-‧₊˚🎄 *::* *$prefixwink* + <mention>
+‧₊˚🍁 *::* *$prefixwink* + <mention>
 > Guiñar un ojo.
-‧₊˚🎄 *::* *$prefixpat* + <mention>
+‧₊˚🍁 *::* *$prefixpat* + <mention>
 > Acariciar a alguien.
-‧₊˚🎄 *::* *$prefixhappy » $prefixfeliz* + <mention>
+‧₊˚🍁 *::* *$prefixhappy » $prefixfeliz* + <mention>
 > Saltar de felicidad.
-‧₊˚🎄 *::* *$prefixbully* + <mention>
+‧₊˚🍁 *::* *$prefixbully* + <mention>
 > Molestar a alguien.
-‧₊˚🎄 *::* *$prefixbite » $prefixmorder* + <mention>
+‧₊˚🍁 *::* *$prefixbite » $prefixmorder* + <mention>
 > Morder a alguien.
-‧₊˚🎄 *::* *$prefixblush* + <mention>
+‧₊˚🍁 *::* *$prefixblush* + <mention>
 > Sonrojarse.
-‧₊˚🎄 *::* *$prefixwave* + <mention>
+‧₊˚🍁 *::* *$prefixwave* + <mention>
 > Saludar con la mano.
-‧₊˚🎄 *::* *$prefixbath* + <mention>
+‧₊˚🍁 *::* *$prefixbath* + <mention>
 > Bañarse.
-‧₊˚🎄 *::* *$prefixsmug* + <mention>
+‧₊˚🍁 *::* *$prefixsmug* + <mention>
 > Actuar presumido.
-‧₊˚🎄 *::* *$prefixsmile* + <mention>
+‧₊˚🍁 *::* *$prefixsmile* + <mention>
 > Sonreír.
-‧₊˚🎄 *::* *$prefixhighfive* + <mention>
+‧₊˚🍁 *::* *$prefixhighfive* + <mention>
 > Dar un "choca esos cinco".
-‧₊˚🎄 *::* *$prefixhandhold* + <mention>
+‧₊˚🍁 *::* *$prefixhandhold* + <mention>
 > Tomar de la mano.
-‧₊˚🎄 *::* *$prefixcringe* + <mention>
+‧₊˚🍁 *::* *$prefixcringe* + <mention>
 > Hacer una mueca incómoda.
-‧₊˚🎄 *::* *$prefixbonk* + <mention>
+‧₊˚🍁 *::* *$prefixbonk* + <mention>
 > Dar un golpe divertido.
-‧₊˚🎄 *::* *$prefixcry* + <mention>
+‧₊˚🍁 *::* *$prefixcry* + <mention>
 > Llorar.
-‧₊˚🎄 *::* *$prefixlick* + <mention>
+‧₊˚🍁 *::* *$prefixlick* + <mention>
 > Lamer a alguien.
-‧₊˚🎄 *::* *$prefixslap* + <mention>
+‧₊˚🍁 *::* *$prefixslap* + <mention>
 > Dar una bofetada.
-‧₊˚🎄 *::* *$prefixdance* + <mention>
+‧₊˚🍁 *::* *$prefixdance* + <mention>
 > Bailar.
-‧₊˚🎄 *::* *$prefixcuddle* + <mention>
+‧₊˚🍁 *::* *$prefixcuddle* + <mention>
 > Acurrucarse.
 ╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ`,
 }
