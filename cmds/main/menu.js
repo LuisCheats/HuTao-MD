@@ -1,31 +1,17 @@
-import fetch from 'node-fetch';
 import { getDevice } from '@whiskeysockets/baileys';
-import fs from 'fs';
-import axios from 'axios';
 import moment from 'moment-timezone';
 import { bodyMenu, menuObject } from '../../core/commands.js';
+import {
+  mainMenuImage,
+  categoryImages,
+  categoryAliases,
+  categoryNames
+} from './menuConfig.js';
 
 function normalize(text = '') {
   text = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
   return text.endsWith('s') ? text.slice(0, -1) : text;
 }
-
-// ==================== NUEVA CONFIGURACIÓN DE IMÁGENES ====================
-const mainMenuImage = 'https://example.com/main-menu.jpg'; // ← Cambia por tu imagen principal
-
-const categoryImages = {
-  anime: 'https://example.com/anime.jpg',
-  downloads: 'https://example.com/downloads.jpg',
-  economia: 'https://example.com/economia.jpg',
-  gacha: 'https://example.com/gacha.jpg',
-  grupo: 'https://example.com/grupo.jpg',
-  nsfw: 'https://example.com/nsfw.jpg',
-  profile: 'https://example.com/profile.jpg',
-  sockets: 'https://example.com/sockets.jpg',
-  stickers: 'https://example.com/stickers.jpg',
-  utils: 'https://example.com/utils.jpg',
-};
-// =====================================================================
 
 export default {
   command: ['allmenu', 'help', 'menu'],
@@ -43,90 +29,68 @@ export default {
       const botname = botSettings.botname || '';
       const namebot = botSettings.namebot || '';
       const banner = botSettings.banner || '';
-      const owner = botSettings.owner || '';
       const canalId = botSettings.id || '';
       const canalName = botSettings.nameid || '';
+      
       const isOficialBot = botId === global.client.user.id.split(':')[0] + '@s.whatsapp.net';
       const botType = isOficialBot ? 'Principal/Owner' : 'Sub Bot';
       
       const users = Object.keys(global.db.data.users).length;
-      const device = getDevice(m.key.id);
-      const sender = global.db.data.users[m.sender].name;
       const time = client.uptime ? formatearMs(Date.now() - client.uptime) : "Desconocido";
-
-      const alias = {
-        anime: ['anime', 'reacciones'],
-        downloads: ['downloads', 'descargas'],
-        economia: ['economia', 'economy', 'eco'],
-        gacha: ['gacha', 'rpg'],
-        grupo: ['grupo', 'group'],
-        nsfw: ['nsfw', '+18'],
-        profile: ['profile', 'perfil'],
-        sockets: ['sockets', 'bots'],
-        stickers: ['stickers', 'sticker'],
-        utils: ['utils', 'utilidades', 'herramientas']
-      };
-
+      
       const input = normalize(args[0] || '');
-      const cat = Object.keys(alias).find(k => alias[k].map(normalize).includes(input));
-
-      if (args[0] && !cat) {      
-        return m.reply(`《✧》 La categoria *\( {args[0]}* no existe, las categorias disponibles son: * \){Object.keys(alias).join(', ')}*.\n> Para ver la lista completa escribe *\( {usedPrefix}menu*\n> Para ver los comandos de una categoría escribe * \){usedPrefix}menu [categoría]*\n> Ejemplo: *${usedPrefix}menu anime*`);
+      const cat = Object.keys(categoryAliases).find(k =>
+        categoryAliases[k].map(normalize).includes(input)
+      );
+      
+      if (args[0] && !cat) {
+        return m.reply(`《✧》 La categoría *${args[0]}* no existe.\n\nCategorías: ${Object.keys(categoryAliases).join(', ')}`);
       }
-
-      // ==================== NUEVO MENSAJE PARA MENU PRINCIPAL ====================
-      let messageContent;
-      let finalBanner;
-
+      
+      let messageContent = '';
+      let finalBanner = banner;
+      
       if (cat) {
-        // Menú por categoría (mantiene el comportamiento anterior)
-        const sections = menuObject;
-        const content = String(sections[cat] || '');
-        let menu = bodyMenu ? String(bodyMenu || '') + '\n\n' + content : content;
-
+        // Menú por categoría (texto normal)
+        const content = String(menuObject[cat] || '');
+        let menu = bodyMenu ? String(bodyMenu) + '\n\n' + content : content;
+        
         const replacements = {
-          \( owner: owner ? (!isNaN(owner.replace(/@s\.whatsapp\.net \)/, '')) ? global.db.data.users[owner]?.name || owner.split('@')[0] : owner) : 'Oculto por privacidad',
           $botType: botType,
-          $device: device,
-          $tiempo: tiempo,
-          $tempo: tempo,
           $users: users.toLocaleString(),
-          $link: botSettings.link || links.api.channel,
-          \( cat: ` para \` \){cat}\``,
-          $sender: sender,
+          $uptime: time,
           $botname: botname,
           $namebot: namebot,
           $prefix: usedPrefix,
-          $uptime: time
         };
-
+        
         for (const [key, value] of Object.entries(replacements)) {
           menu = menu.replace(new RegExp(`\\${key}`, 'g'), value);
         }
-
+        
         messageContent = menu;
         finalBanner = categoryImages[cat] || banner;
       } else {
-        // Nuevo menú principal bonito
-        messageContent = `╭━💙 MENU PRINCIPAL 💙━╮
+        // === MENÚ PRINCIPAL CON BOTONES ===
+        messageContent =
+          `╭━💙 MENU PRINCIPAL 💙━╮
 │
-│ 💙 *${botname || namebot}*
+│ 💙 *${botname || namebot || 'Bot'}*
 │
 │ 👤 *Usuarios:* ${users.toLocaleString()}
 │ ⏱️ *Uptime:* ${time}
 │ 📱 *Tipo:* ${botType}
 │
 │ 💙 Selecciona una categoría:
-│
 ╰━━━━━━━━━━━━━━━━━╯`;
+        
         finalBanner = mainMenuImage;
       }
-      // =====================================================================
-
-      await client.sendMessage(m.chat, finalBanner.includes('.mp4') || finalBanner.includes('.webm') ? {
-        video: { url: finalBanner },
-        gifPlayback: true,
-        caption: messageContent,
+      
+      const isVideo = finalBanner?.includes('.mp4') || finalBanner?.includes('.webm');
+      
+      const options = {
+        quoted: m,
         contextInfo: {
           mentionedJid: [m.sender],
           isForwarded: true,
@@ -136,30 +100,53 @@ export default {
             newsletterName: canalName
           }
         }
-      } : {
-        text: messageContent,
-        contextInfo: {
-          mentionedJid: [m.sender],
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-            newsletterJid: canalId,
-            serverMessageId: '',
-            newsletterName: canalName
-          },
-          externalAdReply: {
-            title: botname || namebot,
-            body: `${namebot}`,
-            showAdAttribution: false,
-            thumbnailUrl: finalBanner,
-            mediaType: 1,
-            previewType: 0,
-            renderLargerThumbnail: true
+      };
+      
+      if (!cat) {
+        // Botones solo en el menú principal
+        const sections = [{
+          title: "📋 Categorías Disponibles",
+          rows: Object.keys(categoryAliases).map(key => ({
+            title: `📌 ${categoryNames[key] || key.toUpperCase()}`,
+            description: `Ver comandos de ${categoryNames[key] || key}`,
+            rowId: `${usedPrefix}menu ${key}`
+          }))
+        }];
+        
+        await client.sendMessage(m.chat, {
+          text: messageContent,
+          footer: `${botname || namebot} • ${tempo}`,
+          buttonText: "Selecciona una categoría",
+          sections,
+          viewOnce: true,
+          ...options
+        });
+      } else {
+        // Envío normal para categorías
+        await client.sendMessage(m.chat, isVideo ? {
+          video: { url: finalBanner },
+          gifPlayback: true,
+          caption: messageContent,
+          ...options
+        } : {
+          text: messageContent,
+          ...options,
+          contextInfo: {
+            ...options.contextInfo,
+            externalAdReply: {
+              title: botname || namebot,
+              body: namebot,
+              thumbnailUrl: finalBanner,
+              mediaType: 1,
+              renderLargerThumbnail: true
+            }
           }
-        }
-      }, { quoted: m });
-
+        });
+      }
+      
     } catch (e) {
-      await m.reply(`> An unexpected error occurred while executing command *\( {usedPrefix + command}*. Please try again or contact support if the issue persists.\n> [Error: * \){e.message}*]`);
+      console.error(e);
+      await m.reply(`> Error al mostrar el menú:\n${e.message}`);
     }
   }
 };
