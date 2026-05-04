@@ -1,17 +1,54 @@
 import { getDevice } from '@whiskeysockets/baileys';
 import moment from 'moment-timezone';
 import { bodyMenu, menuObject } from '../../core/commands.js';
-import {
-  mainMenuImage,
-  categoryImages,
-  categoryAliases,
-  categoryNames
-} from './menuConfig.js';
 
 function normalize(text = '') {
   text = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
   return text.endsWith('s') ? text.slice(0, -1) : text;
 }
+
+// ==================== CONFIGURACIÓN DE IMÁGENES ====================
+const mainMenuImage = 'https://file.garden/ae-9DPf0ekWVe7ex/TikVid.io_7633242534839356692-hd.mp4';
+
+const categoryImages = {
+  anime: 'https://i.pinimg.com/736x/53/13/9a/53139a45b8a098588a4e1b6557ee8492.jpg',
+  downloads: 'https://i.pinimg.com/736x/60/64/bb/6064bb9466503fd9e752f8db55d92ced.jpg',
+  economia: 'https://pbs.twimg.com/media/Fi_HBmFUAAY6L9i.jpg',
+  gacha: 'https://img.anmosugoi.com/file/media-sugoi/2023/06/Hatsune-Miku-celebra-sus-16-anos-con-un-festival-de-sorpresas-1.jpg',
+  grupo: 'https://e0.pxfuel.com/wallpaper/459/137/desktop-wallpaper-the-vocaloid-crew-suits-crew-hatsune-miku-rin-and-len-kagamine-vocaloid-people-team-anime-group-megurine-luka.jpg',
+  nsfw: 'https://i.pinimg.com/736x/95/92/63/95926316fbc8708df3245d45fabf3393.jpg',
+  profile: 'https://i.pinimg.com/736x/cf/4f/bd/cf4fbdccb346330efd7f02c60f52c6d0.jpg',
+  sockets: 'https://i.pinimg.com/736x/46/8d/e3/468de3ae91716d0b8033fc2b0d85772f.jpg',
+  stickers: 'https://i.pinimg.com/236x/7f/f1/04/7ff10431e8ab905b86498cbe94a0dbf1.jpg',
+  utils: 'https://e1.pxfuel.com/desktop-wallpaper/532/937/desktop-wallpaper-hatsune-miku-1920x1080-hatsune-miku-thumbnail.jpg'
+};
+
+const categoryAliases = {
+  anime: ['anime', 'reacciones'],
+  downloads: ['downloads', 'descargas'],
+  economia: ['economia', 'economy', 'eco'],
+  gacha: ['gacha', 'rpg'],
+  grupo: ['grupo', 'group'],
+  nsfw: ['nsfw', '+18'],
+  profile: ['profile', 'perfil'],
+  sockets: ['sockets', 'bots', 'config'],
+  stickers: ['stickers', 'sticker'],
+  utils: ['utils', 'utilidades', 'herramientas']
+};
+
+const categoryNames = {
+  anime: 'ANIME',
+  downloads: 'DESCARGAS',
+  economia: 'ECONOMÍA',
+  gacha: 'GACHA',
+  grupo: 'GRUPO',
+  nsfw: 'NSFW',
+  profile: 'PERFIL',
+  sockets: 'CONFIG',
+  stickers: 'STICKERS',
+  utils: 'UTILIDADES'
+};
+// =================================================================
 
 export default {
   command: ['allmenu', 'help', 'menu'],
@@ -44,14 +81,14 @@ export default {
       );
       
       if (args[0] && !cat) {
-        return m.reply(`《✧》 La categoría *${args[0]}* no existe.\n\nCategorías: ${Object.keys(categoryAliases).join(', ')}`);
+        return m.reply(`《✧》 La categoría *${args[0]}* no existe.\n\nCategorías disponibles: ${Object.keys(categoryAliases).join(', ')}`);
       }
       
       let messageContent = '';
       let finalBanner = banner;
       
       if (cat) {
-        // Menú por categoría (texto normal)
+        // Menú por categoría
         const content = String(menuObject[cat] || '');
         let menu = bodyMenu ? String(bodyMenu) + '\n\n' + content : content;
         
@@ -71,7 +108,7 @@ export default {
         messageContent = menu;
         finalBanner = categoryImages[cat] || banner;
       } else {
-        // === MENÚ PRINCIPAL CON BOTONES ===
+        // Menú Principal con Botones
         messageContent =
           `╭━💙 MENU PRINCIPAL 💙━╮
 │
@@ -87,28 +124,23 @@ export default {
         finalBanner = mainMenuImage;
       }
       
-      const isVideo = finalBanner?.includes('.mp4') || finalBanner?.includes('.webm');
-      
-      const options = {
-        quoted: m,
-        contextInfo: {
-          mentionedJid: [m.sender],
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-            newsletterJid: canalId,
-            serverMessageId: '',
-            newsletterName: canalName
-          }
+      const contextInfo = {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: canalId,
+          serverMessageId: '',
+          newsletterName: canalName
         }
       };
       
       if (!cat) {
-        // Botones solo en el menú principal
+        // === MENÚ CON BOTONES ===
         const sections = [{
           title: "📋 Categorías Disponibles",
           rows: Object.keys(categoryAliases).map(key => ({
-            title: `📌 ${categoryNames[key] || key.toUpperCase()}`,
-            description: `Ver comandos de ${categoryNames[key] || key}`,
+            title: `📌 ${categoryNames[key]}`,
+            description: `Ver comandos de ${categoryNames[key]}`,
             rowId: `${usedPrefix}menu ${key}`
           }))
         }];
@@ -119,20 +151,21 @@ export default {
           buttonText: "Selecciona una categoría",
           sections,
           viewOnce: true,
-          ...options
+          contextInfo
         });
       } else {
         // Envío normal para categorías
+        const isVideo = finalBanner?.includes('.mp4') || finalBanner?.includes('.webm');
+        
         await client.sendMessage(m.chat, isVideo ? {
           video: { url: finalBanner },
           gifPlayback: true,
           caption: messageContent,
-          ...options
+          contextInfo
         } : {
           text: messageContent,
-          ...options,
           contextInfo: {
-            ...options.contextInfo,
+            ...contextInfo,
             externalAdReply: {
               title: botname || namebot,
               body: namebot,
