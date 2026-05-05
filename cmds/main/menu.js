@@ -21,20 +21,19 @@ export default {
       const tempo = moment.tz('America/Caracas').format('hh:mm A');
       const botId = client?.user?.id.split(':')[0] + '@s.whatsapp.net';
       const botSettings = global.db.data.settings[botId] || {};
-      const botname = botSettings.botname || 'Mi Bot';
-      const namebot = botSettings.namebot || 'Bot WhatsApp';
-      // EJEMPLO DE URL DE IMAGEN (puedes cambiarla por tu propia URL)
-      const banner = botSettings.banner || 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/bb40cde8e29194f54663a89dbf6d7caa.jpg';
+      const botname = botSettings.botname || '';
+      const namebot = botSettings.namebot || '';
+      const banner = botSettings.banner || '';
       const owner = botSettings.owner || '';
       const canalId = botSettings.id || '';
       const canalName = botSettings.nameid || '';
       const prefix = botSettings.prefix;
-      const link = botSettings.link || 'https://whatsapp.com/channel/...';
+      const link = botSettings.link || links.api.channel;
       const isOficialBot = botId === global.client.user.id.split(':')[0] + '@s.whatsapp.net';
       const botType = isOficialBot ? 'Principal/Owner' : 'Sub Bot';
       const users = Object.keys(global.db.data.users).length;
       const device = getDevice(m.key.id);
-      const sender = global.db.data.users[m.sender]?.name || m.pushName || 'Usuario';
+      const sender = global.db.data.users[m.sender].name;
       const time = client.uptime ? formatearMs(Date.now() - client.uptime) : "Desconocido";
       const alias = {
         anime: ['anime', 'reacciones'],
@@ -75,63 +74,40 @@ export default {
       for (const [key, value] of Object.entries(replacements)) {
         menu = menu.replace(new RegExp(`\\${key}`, 'g'), value);
       }
-
-      // Verificar si el banner es video o imagen
-      const esVideo = banner.includes('.mp4') || banner.includes('.webm');
-      
-      if (esVideo) {
-        // Para videos
-        await client.sendMessage(m.chat, {
-          video: { url: banner },
-          gifPlayback: true,
-          caption: menu,
-          contextInfo: {
-            mentionedJid: [m.sender],
-            isForwarded: true,
-            forwardedNewsletterMessageInfo: {
-              newsletterJid: canalId,
-              serverMessageId: '',
-              newsletterName: canalName
+        await client.sendMessage(m.chat, banner.includes('.mp4') || banner.includes('.webm') ? {
+            video: { url: banner },
+            gifPlayback: true,
+            caption: menu,
+            contextInfo: {
+              mentionedJid: [m.sender],
+              isForwarded: true,
+              forwardedNewsletterMessageInfo: {
+                newsletterJid: canalId,
+                serverMessageId: '',
+                newsletterName: canalName
+              }
             }
-          }
-        }, { quoted: m });
-      } else {
-        // Para imágenes con botón
-        const buttonMessage = {
-          text: menu,
-          footer: '⚡ Powered by Discord',
-          buttons: [
-            {
-              buttonId: `${usedPrefix}canales`,
-              buttonText: { displayText: '📢 Ver Canales' },
-              type: 1
+          } : {
+            text: menu,
+            contextInfo: {
+              mentionedJid: [m.sender],
+              isForwarded: true,
+              forwardedNewsletterMessageInfo: {
+                newsletterJid: canalId,
+                serverMessageId: '',
+                newsletterName: canalName
+              },
+              externalAdReply: {
+                title: botname,
+                body: `${namebot}`,
+                showAdAttribution: false,
+                thumbnailUrl: banner,
+                mediaType: 1,
+                previewType: 0,
+                renderLargerThumbnail: true
+              }
             }
-          ],
-          headerType: 1,
-          contextInfo: {
-            mentionedJid: [m.sender],
-            isForwarded: true,
-            forwardedNewsletterMessageInfo: {
-              newsletterJid: canalId,
-              serverMessageId: '',
-              newsletterName: canalName
-            },
-            externalAdReply: {
-              title: botname,
-              body: namebot,
-              thumbnailUrl: banner,
-              thumbnail: banner,
-              mediaType: 1,
-              mediaUrl: banner,
-              sourceUrl: link,
-              showAdAttribution: false,
-              renderLargerThumbnail: true
-            }
-          }
-        };
-        
-        await client.sendMessage(m.chat, buttonMessage, { quoted: m });
-      }
+          }, { quoted: m });
     } catch (e) {
       await m.reply(`> An unexpected error occurred while executing command *${usedPrefix + command}*. Please try again or contact support if the issue persists.\n> [Error: *${e.message}*]`)
     }
