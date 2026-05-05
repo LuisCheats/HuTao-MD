@@ -75,39 +75,11 @@ export default {
         menu = menu.replace(new RegExp(`\\${key}`, 'g'), value);
       }
 
-      // Botón para ver canales
-      const buttonMessage = {
-        text: menu,
-        footer: '⚡ Powered by Discord',
-        buttons: [
-          {
-            buttonId: `${usedPrefix}canales`,
-            buttonText: { displayText: '📢 Ver Canales' },
-            type: 1
-          }
-        ],
-        headerType: 1,
-        contextInfo: {
-          mentionedJid: [m.sender],
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-            newsletterJid: canalId,
-            serverMessageId: '',
-            newsletterName: canalName
-          },
-          externalAdReply: {
-            title: botname,
-            body: `${namebot}`,
-            showAdAttribution: false,
-            thumbnailUrl: banner,
-            mediaType: 1,
-            previewType: 0,
-            renderLargerThumbnail: true
-          }
-        }
-      };
-
-      if (banner.includes('.mp4') || banner.includes('.webm')) {
+      // Verificar si el banner es un video o imagen
+      const esVideo = banner.includes('.mp4') || banner.includes('.webm');
+      
+      if (esVideo) {
+        // Para videos: solo caption sin botones
         await client.sendMessage(m.chat, {
           video: { url: banner },
           gifPlayback: true,
@@ -123,7 +95,38 @@ export default {
           }
         }, { quoted: m });
       } else {
-        await client.sendMessage(m.chat, buttonMessage, { quoted: m });
+        // Para imágenes: usar mensaje con botones y mantener la imagen en externalAdReply
+        await client.sendMessage(m.chat, {
+          text: menu,
+          footer: '⚡ Powered by Discord',
+          buttons: [
+            {
+              buttonId: `${usedPrefix}canales`,
+              buttonText: { displayText: '📢 Ver Canales' },
+              type: 1
+            }
+          ],
+          headerType: 1,
+          contextInfo: {
+            mentionedJid: [m.sender],
+            isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+              newsletterJid: canalId,
+              serverMessageId: '',
+              newsletterName: canalName
+            },
+            externalAdReply: {
+              title: botname,
+              body: namebot,
+              thumbnailUrl: banner, // Aquí se muestra la imagen del banner
+              mediaType: 1,
+              mediaUrl: banner,
+              sourceUrl: link,
+              showAdAttribution: false,
+              renderLargerThumbnail: true
+            }
+          }
+        }, { quoted: m });
       }
     } catch (e) {
       await m.reply(`> An unexpected error occurred while executing command *${usedPrefix + command}*. Please try again or contact support if the issue persists.\n> [Error: *${e.message}*]`)
