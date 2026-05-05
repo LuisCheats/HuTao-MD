@@ -24,7 +24,7 @@ export default {
       const botname = botSettings.botname || 'Mi Bot';
       const namebot = botSettings.namebot || 'Bot WhatsApp';
       // EJEMPLO DE URL DE IMAGEN (puedes cambiarla por tu propia URL)
-      const banner = botSettings.banner || 'https://files.catbox.moe/7y5vx8.jpeg';
+      const banner = botSettings.banner || 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/bb40cde8e29194f54663a89dbf6d7caa.jpg';
       const owner = botSettings.owner || '';
       const canalId = botSettings.id || '';
       const canalName = botSettings.nameid || '';
