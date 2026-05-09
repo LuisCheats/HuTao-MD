@@ -11,8 +11,8 @@ function initDB(m, client) {
 settings.nameid ??= "𝓚𝔂𝓸𝓴𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵"
 settings.type ??= 'Owner'
 settings.link ??= 'https://kyoko.qzz.io/'
-settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/bb40cde8e29194f54663a89dbf6d7caa.jpg'
-settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/bb40cde8e29194f54663a89dbf6d7caa.jpg'
+settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/3117052ddfa60199310cb51c069065db.jpg'
+settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/3117052ddfa60199310cb51c069065db.jpg'
 settings.currency ??= 'Yenes'
 settings.namebot ??= '𝓚𝔂𝓸𝓴𝓸'
 settings.botname ??= '𝓚𝔂𝓸𝓴𝓸 - 𝓜𝓓'
