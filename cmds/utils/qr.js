@@ -4,7 +4,7 @@ const API_KEY = '7nonnly'
 const BASE_URL = 'https://kyoko.qzz.io/api/tools/qr'
 
 export default {
-  command: ['qr', 'qrcode', 'generatorqr'],
+  command: ['qrgenerator', 'qrg', 'generatorqr'],
   category: 'tools',
   run: async (client, m, args, usedPrefix, command) => {
     const text = args.join(' ')
