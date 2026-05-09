@@ -10,7 +10,7 @@ function initDB(m, client) {
   settings.id ??= '120363427395193986@newsletter'
 settings.nameid ??= "𝓚𝔂𝓸𝓴𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵"
 settings.type ??= 'Owner'
-settings.link ??= 'https://kyoko.qzz.io/'
+settings.link ??= 'kyoko.qzz.io'
 settings.banner ??= 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/3117052ddfa60199310cb51c069065db.jpg'
 settings.icon ??= 'https://raw.githubusercontent.com/LuisCheats/upload/refs/heads/main/3117052ddfa60199310cb51c069065db.jpg'
 settings.currency ??= 'Yenes'
