@@ -25,6 +25,7 @@ botAdmin: '《✧》 Este comando solo puede ser ejecutado si el Socket es Admin
 }
 
 global.APIs = {
+kyoko: { url: "https://kyoko.qzz.io", key: "KYO-oFKYxF7H-XhO3IDxH" },
 axi: { url: "https://apiaxi.i11.eu", key: null },
 vreden: { url: "https://api.vreden.web.id", key: null },
 nekolabs: { url: "https://api.nekolabs.web.id", key: null },
