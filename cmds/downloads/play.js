@@ -4,7 +4,7 @@ import { getBuffer } from '../../core/message.js'
 
 // Configuración del newsletter
 const newsletterJid = '120363427395193986@newsletter'
-const newsletterName = '𝓗𝓾𝓣𝓪𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵'
+const newsletterName = '𝓚𝔂𝓸𝓴𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵'
 
 const API_KEY = 'KYO-oFKYxF7H-XhO3IDxH'
 const BASE_URL = 'https://kyoko.qzz.io/api/download'
