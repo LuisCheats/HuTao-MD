@@ -59,7 +59,7 @@ export default {
   }
 }
 
-// 🔹 Función exclusiva con Kyoko para Instagram
+// 🔹 Función exclusiva con Kyoko para Instagram (detección mejorada)
 async function getInstagramMedia(url) {
   const endpoint = `${BASE_URL}/instagram?apiKey=${API_KEY}&url=${encodeURIComponent(url)}`
   try {
@@ -69,11 +69,18 @@ async function getInstagramMedia(url) {
     if (json?.status === true && Array.isArray(json.data) && json.data.length) {
       const item = json.data[0]
       if (!item.url) return null
-      // Detectar tipo por extensión o por contenido (si la respuesta no lo indica explícitamente)
-      const isVideo = item.url.includes('.mp4') || /\/video\//i.test(item.url)
+      
+      // 🔥 Detección precisa de video vs imagen
+      const urlLower = item.url.toLowerCase()
+      const isVideo = urlLower.includes('.mp4') || 
+                      urlLower.includes('.mov') || 
+                      urlLower.includes('/video/') || 
+                      urlLower.includes('?video') ||
+                      /\.mp4\?/i.test(urlLower)
+      
       return {
         type: isVideo ? 'video' : 'image',
-        title: null,   // Kyoko no devuelve usuario en esta respuesta
+        title: null,
         caption: null,
         like: null,
         comment: null,
