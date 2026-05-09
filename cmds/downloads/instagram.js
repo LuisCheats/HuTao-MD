@@ -1,5 +1,9 @@
 import fetch from 'node-fetch'
 
+// API Kyoko
+const API_KEY = 'KYO-oFKYxF7H-XhO3IDxH'
+const BASE_URL = 'https://kyoko.qzz.io/api/download'
+
 export default {
   command: ['instagram', 'ig'],
   category: 'downloader',
@@ -13,6 +17,7 @@ export default {
     try {
       const data = await getInstagramMedia(args[0])
       if (!data) return m.reply('《✧》 No se pudo obtener el contenido.')
+
       const caption =
         `ㅤ۟∩　ׅ　★ ໌　ׅ　🅘𝖦 🅓ownload　ׄᰙ\n\n` +
         `${data.title ? `𖣣ֶㅤ֯⌗ ❀  ⬭ *Usuario* › ${data.title}\n` : ''}` +
@@ -24,10 +29,27 @@ export default {
         `${data.resolution ? `𖣣ֶㅤ֯⌗ ❀  ⬭ *Resolución* › ${data.resolution}\n` : ''}` +
         `${data.format ? `𖣣ֶㅤ֯⌗ ❀  ⬭ *Formato* › ${data.format}\n` : ''}` +
         `𖣣ֶㅤ֯⌗ ❀  ⬭ *Enlace* › ${args[0]}`
+
       if (data.type === 'video') {
-        await client.sendMessage(m.chat, { video: { url: data.url }, caption, mimetype: 'video/mp4', fileName: 'ig.mp4' }, { quoted: m })
+        await client.sendMessage(
+          m.chat,
+          {
+            video: { url: data.url },
+            caption,
+            mimetype: 'video/mp4',
+            fileName: 'ig.mp4'
+          },
+          { quoted: m }
+        )
       } else if (data.type === 'image') {
-        await client.sendMessage(m.chat, { image: { url: data.url }, caption }, { quoted: m })
+        await client.sendMessage(
+          m.chat,
+          {
+            image: { url: data.url },
+            caption
+          },
+          { quoted: m }
+        )
       } else {
         throw new Error('Contenido no soportado.')
       }
@@ -37,59 +59,34 @@ export default {
   }
 }
 
+// 🔹 Función exclusiva con Kyoko para Instagram
 async function getInstagramMedia(url) {
-  const apis = [
-    { endpoint: `${global.APIs.stellar.url}/dl/instagram?url=${encodeURIComponent(url)}&key=${global.APIs.stellar.key}`, extractor: res => {
-        if (!res.status || !Array.isArray(res.data) || !res.data.length) return null
-        const media = res.data[0]
-        if (!media?.url) return null
-        return { type: media.tipo === 'video' ? 'video' : 'image', title: null, caption: null, resolution: null, format: media.tipo === 'video' ? 'mp4' : 'jpg', url: media.url }
-      }
-    },
-    { endpoint: `${global.APIs.stellar.url}/dl/instagramv2?url=${encodeURIComponent(url)}&key=${global.APIs.stellar.key}`, extractor: res => {
-        if (!res.status || !res.data?.url) return null
-        const mediaUrl = res.data.mediaUrls?.[0] || res.data.url
-        if (!mediaUrl) return null
-        return { type: res.data.type === 'video' ? 'video' : 'image', title: res.data.username || null, caption: res.data.caption || null, resolution: null, format: res.data.type === 'video' ? 'mp4' : 'jpg', url: mediaUrl, thumbnail: res.data.thumbnail || null, duration: res.data.videoMeta?.duration ? `${Math.round(res.data.videoMeta.duration)}s` : null }
-      }
-    },
-    { endpoint: `${global.APIs.nekolabs.url}/downloader/instagram?url=${encodeURIComponent(url)}`, extractor: res => {
-        if (!res.success || !res.result?.downloadUrl?.length) return null
-        const mediaUrl = res.result.downloadUrl[0]
-        if (!mediaUrl) return null
-        return { type: res.result.metadata?.isVideo ? 'video' : 'image', title: res.result.metadata?.username || null, caption: res.result.metadata?.caption || null, like: res.result.metadata?.like || null, comment: res.result.metadata?.comment || null, resolution: null, format: res.result.metadata?.isVideo ? 'mp4' : 'jpg', url: mediaUrl }
-      }
-    },
-    { endpoint: `${global.APIs.delirius.url}/download/instagram?url=${encodeURIComponent(url)}`, extractor: res => {
-        if (!res.status || !Array.isArray(res.data) || !res.data.length) return null
-        const media = res.data[0]
-        if (!media?.url) return null
-        return { type: media.type === 'video' ? 'video' : 'image', title: null, caption: null, resolution: null, format: media.type === 'video' ? 'mp4' : 'jpg', url: media.url }
-      }
-    },
-    { endpoint: `${global.APIs.ootaizumi.url}/downloader/instagram/v2?url=${encodeURIComponent(url)}`, extractor: res => {
-        if (!res.status || !res.result?.url?.length) return null
-        const media = res.result.url[0]
-        if (!media?.url) return null
-        return { type: media.type === 'mp4' ? 'video' : 'image', title: res.result.meta?.username || null, caption: res.result.meta?.title || null, like: res.result.meta?.like_count || null, comment: res.result.meta?.comment_count || null, resolution: null, format: media.ext || null, url: media.url, thumbnail: res.result.thumb || null }
-      }
-    },
-    { endpoint: `${global.APIs.ootaizumi.url}/downloader/instagram/v1?url=${encodeURIComponent(url)}`, extractor: res => {
-        if (!res.status || !res.result?.media?.length) return null
-        const media = res.result.media[0]
-        if (!media?.url) return null
-        return { type: media.isVideo ? 'video' : 'image', title: res.result.metadata?.author || null, caption: null, like: res.result.metadata?.like || null, views: res.result.metadata?.views || null, duration: res.result.metadata?.duration ? `${Math.round(res.result.metadata.duration)}s` : null, resolution: null, format: media.isVideo ? 'mp4' : 'jpg', url: media.url, thumbnail: res.result.ppc || null }
+  const endpoint = `${BASE_URL}/instagram?apiKey=${API_KEY}&url=${encodeURIComponent(url)}`
+  try {
+    const res = await fetch(endpoint)
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const json = await res.json()
+    if (json?.status === true && Array.isArray(json.data) && json.data.length) {
+      const item = json.data[0]
+      if (!item.url) return null
+      // Detectar tipo por extensión o por contenido (si la respuesta no lo indica explícitamente)
+      const isVideo = item.url.includes('.mp4') || /\/video\//i.test(item.url)
+      return {
+        type: isVideo ? 'video' : 'image',
+        title: null,   // Kyoko no devuelve usuario en esta respuesta
+        caption: null,
+        like: null,
+        comment: null,
+        views: null,
+        duration: null,
+        resolution: null,
+        format: isVideo ? 'mp4' : 'jpg',
+        url: item.url,
+        thumbnail: item.thumbnail || null
       }
     }
-  ]
-
-  for (const { endpoint, extractor } of apis) {
-    try {
-      const res = await fetch(endpoint).then(r => r.json())
-      const result = extractor(res)
-      if (result) return result
-    } catch {}
-    await new Promise(r => setTimeout(r, 500))
+  } catch (e) {
+    console.error('Kyoko Instagram error:', e)
   }
   return null
 }
