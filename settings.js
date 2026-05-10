@@ -24,6 +24,11 @@ admin: '《✧》 Este comando solo puede ser ejecutado por los Administradores 
 botAdmin: '《✧》 Este comando solo puede ser ejecutado si el Socket es Administrador del Grupo.'
 }
 
+global.api = {
+  url: 'https://kyoko.qzz.io',
+  key: 'KYO-oFKYxF7H-XhO3IDxH'
+}
+
 global.APIs = {
 kyoko: { url: "https://kyoko.qzz.io", key: "KYO-oFKYxF7H-XhO3IDxH" },
 axi: { url: "https://apiaxi.i11.eu", key: null },
