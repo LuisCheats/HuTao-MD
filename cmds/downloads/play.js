@@ -44,7 +44,7 @@ export default {
       
       const audioData = await getKyokoAudio(url)
       if (!audioData || !audioData.download_url) {
-        return m.reply('《✧》 No se pudo obtener el audio desde Kyoko. Verifica la URL.')
+        return m.reply('《✧》 No se pudo obtener el audio desde la api.')
       }
       
       // ✅ Mensaje original SIN decoración de caja
