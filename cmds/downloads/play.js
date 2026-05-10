@@ -31,7 +31,6 @@ export default {
       } else {
         const search = await yts(text)
         if (!search.all.length) throw new Error('No se encontraron resultados')
-        const canal = author?.name || author || 'Desconocido'
         const first = search.all[0]
         url = first.url
         title = first.title
@@ -48,7 +47,6 @@ export default {
       // ✅ Mensaje original SIN decoración de caja
       const infoMessage = `➩ Descargando audio › *${title || audioData.title}*
 
-canal ${canal}
 > ⴵ Duración › *${audioData.duration || 'N/A'} s*
 > ❀ Formato › *mp3*
 > ✩ Fuente › *Kyoko API*
