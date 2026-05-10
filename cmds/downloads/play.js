@@ -6,9 +6,6 @@ import { getBuffer } from '../../core/message.js'
 const newsletterJid = '120363427395193986@newsletter'
 const newsletterName = '𝓚𝔂𝓸𝓴𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵'
 
-const API_KEY = 'KYO-oFKYxF7H-XhO3IDxH'
-const BASE_URL = 'https://kyoko.qzz.io/api/download'
-
 export default {
   command: ['play', 'mp3', 'ytmp3', 'ytaudio', 'playaudio'],
   category: 'downloader',
@@ -34,6 +31,7 @@ export default {
       } else {
         const search = await yts(text)
         if (!search.all.length) throw new Error('No se encontraron resultados')
+        const canal = author?.name || author || 'Desconocido'
         const first = search.all[0]
         url = first.url
         title = first.title
@@ -50,6 +48,7 @@ export default {
       // ✅ Mensaje original SIN decoración de caja
       const infoMessage = `➩ Descargando audio › *${title || audioData.title}*
 
+canal ${canal}
 > ⴵ Duración › *${audioData.duration || 'N/A'} s*
 > ❀ Formato › *mp3*
 > ✩ Fuente › *Kyoko API*
