@@ -93,7 +93,7 @@ export default {
 }
 
 async function getKyokoAudio(url) {
-  const endpoint = `${BASE_URL}/ytaudio?apiKey=${API_KEY}&url=${encodeURIComponent(url)}`
+  const endpoint = `${api.url}/ytaudio?apiKey=${api.key}&url=${encodeURIComponent(url)}`
   try {
     const res = await fetch(endpoint)
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
