@@ -70,8 +70,8 @@ export default {
 
 // 🔹 Descarga por enlace
 async function getTikTokDownload(url) {
-  const API_KEY = 'KYO-oFKYxF7H-XhO3IDxH'
-  const endpoint = `https://kyoko.qzz.io/api/download/tiktok?apiKey=${API_KEY}&url=${encodeURIComponent(url)}`
+  
+  const endpoint = `${api.url}/api/download/tiktok?apiKey=${api.key}&url=${encodeURIComponent(url)}`
   
   try {
     const res = await fetch(endpoint)
