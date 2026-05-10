@@ -11,10 +11,9 @@ export default {
     }
     try {
       if (isPinterestUrl) {
-        // Descarga desactivada (solo se usa la API de Kyoko para búsqueda)
         const data = await getPinterestDownload(text)
-        if (!data) return m.reply('ꕥ No se pudo obtener el contenido (solo se soporta búsqueda con la API de Kyoko).')
-        // El resto del código de descarga se mantiene pero nunca se ejecutará porque data es null
+        if (!data) return m.reply('ꕥ No se pudo obtener el contenido.')
+        
         const caption = `ㅤ۟∩　ׅ　★　ׅ　🅟𝖨𝖭 🅓ownload　ׄᰙ　\n\n` + `${data.title ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Título* › ${data.title}\n` : ''}` + `${data.description ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Descripción* › ${data.description}\n` : ''}` + `${data.author ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Autor* › ${data.author}\n` : ''}` + `${data.username ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Usuario* › ${data.username}\n` : ''}` + `${data.followers ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Seguidores* › ${data.followers}\n` : ''}` + `${data.uploadDate ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Fecha* › ${data.uploadDate}\n` : ''}` + `${data.likes ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Likes* › ${data.likes}\n` : ''}` + `${data.comments ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Comentarios* › ${data.comments}\n` : ''}` + `${data.views ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Vistas* › ${data.views}\n` : ''}` + `${data.saved ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Guardados* › ${data.saved}\n` : ''}` + `${data.format ? `𖣣ֶㅤ֯⌗ ☆  ⬭ *Formato* › ${data.format}\n` : ''}` + `𖣣ֶㅤ֯⌗ ☆  ⬭ *Enlace* › ${text}`
         if (data.type === 'video') {
           await client.sendMessage(m.chat, { video: { url: data.url }, caption, mimetype: 'video/mp4', fileName: 'pin.mp4' }, { quoted: m })
@@ -37,14 +36,12 @@ export default {
   }
 }
 
-// Descarga desactivada (siempre retorna null)
 async function getPinterestDownload(url) {
   return null
 }
 
-// Búsqueda exclusiva con la API de Kyoko
 async function getPinterestSearch(query) {
-  const endpoint = `https://kyoko.qzz.io/api/search/pinterest?apiKey=KYO-oFKYxF7H-XhO3IDxH&query=${encodeURIComponent(query)}`;
+  const endpoint = `${api.url}/api/search/pinterest?apiKey=${api.key}&query=${encodeURIComponent(query)}`;
   try {
     const res = await fetch(endpoint).then(r => r.json());
     if (res?.status === true && Array.isArray(res.data) && res.data.length) {
@@ -67,7 +64,7 @@ async function getPinterestSearch(query) {
       if (mapped.length) return mapped;
     }
   } catch (e) {
-    console.error('Error fetching from Kyoko API:', e);
+    console.error('Error fetching API:', e);
   }
   return [];
 }
