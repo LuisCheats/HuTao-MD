@@ -87,7 +87,7 @@ export default {
           forwardedNewsletterMessageInfo: {
             newsletterJid: canalId,
             serverMessageId: '',
-            newsletterName: canalName
+            newsletterName: '7NOONLY TEAM'
           }
         }
       }, { quoted: m });
