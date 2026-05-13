@@ -50,7 +50,7 @@ export default {
       const input = normalize(args[0] || '');
       const cat = Object.keys(alias).find(k => alias[k].map(normalize).includes(input));
       const category = `${cat ? ` para \`${cat}\`` : '. *(˶ᵔ ᵕ ᵔ˶)*'}`
-      if (args[0] && !cat) {      
+      if (args[0] && !cat) {
         return m.reply(`《✧》 La categoria *${args[0]}* no existe, las categorias disponibles son: *${Object.keys(alias).join(', ')}*.\n> Para ver la lista completa escribe *${usedPrefix}menu*\n> Para ver los comandos de una categoría escribe *${usedPrefix}menu [categoría]*\n> Ejemplo: *${usedPrefix}menu anime*`);
       }
       const sections = menuObject;
@@ -74,40 +74,28 @@ export default {
       for (const [key, value] of Object.entries(replacements)) {
         menu = menu.replace(new RegExp(`\\${key}`, 'g'), value);
       }
-        await client.sendMessage(m.chat, banner.includes('.mp4') || banner.includes('.webm') ? {
-            video: { url: banner },
-            gifPlayback: true,
-            caption: menu,
-            contextInfo: {
-              mentionedJid: [m.sender],
-              isForwarded: true,
-              forwardedNewsletterMessageInfo: {
-                newsletterJid: canalId,
-                serverMessageId: '',
-                newsletterName: canalName
-              }
-            }
-          } : {
-            text: menu,
-            contextInfo: {
-              mentionedJid: [m.sender],
-              isForwarded: true,
-              forwardedNewsletterMessageInfo: {
-                newsletterJid: canalId,
-                serverMessageId: '',
-                newsletterName: canalName
-              },
-              externalAdReply: {
-                title: botname,
-                body: `${namebot}`,
-                showAdAttribution: false,
-                thumbnailUrl: banner,
-                mediaType: 1,
-                previewType: 0,
-                renderLargerThumbnail: true
-              }
-            }
-          }, { quoted: m });
+      await client.sendMessage(m.chat, banner.includes('.mp4') || banner.includes('.webm') ? {
+        video: { url: banner },
+        gifPlayback: true,
+        caption: menu,
+        contextInfo: {
+          mentionedJid: [m.sender]
+        }
+      } : {
+        text: menu,
+        contextInfo: {
+          mentionedJid: [m.sender],
+          externalAdReply: {
+            title: botname,
+            body: `${namebot}`,
+            showAdAttribution: false,
+            thumbnailUrl: banner,
+            mediaType: 1,
+            previewType: 0,
+            renderLargerThumbnail: true
+          }
+        }
+      }, { quoted: m });
     } catch (e) {
       await m.reply(`> An unexpected error occurred while executing command *${usedPrefix + command}*. Please try again or contact support if the issue persists.\n> [Error: *${e.message}*]`)
     }
