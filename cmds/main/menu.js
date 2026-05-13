@@ -82,7 +82,13 @@ export default {
         image: imageBuffer,
         caption: menu,
         contextInfo: {
-          mentionedJid: [m.sender]
+          mentionedJid: [m.sender],
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+            newsletterJid: canalId,
+            serverMessageId: '',
+            newsletterName: canalName
+          }
         }
       }, { quoted: m });
     } catch (e) {
