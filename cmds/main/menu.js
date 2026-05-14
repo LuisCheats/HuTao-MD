@@ -91,15 +91,6 @@ export default {
           }
         }
       }, { quoted: m });
-      
-      // Reaccionar con emoji al enviar el menú
-      await client.sendMessage(m.chat, {
-        react: {
-          text: "🌟",
-          key: m.key
-        }
-      });
-      
     } catch (e) {
       await m.reply(`> An unexpected error occurred while executing command *${usedPrefix + command}*. Please try again or contact support if the issue persists.\n> [Error: *${e.message}*]`)
     }
