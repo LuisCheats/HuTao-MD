@@ -31,6 +31,7 @@ global.api = {
 
 global.APIs = {
 kyoko: { url: "https://kyoko.qzz.io", key: "KYO-oFKYxF7H-XhO3IDxH" },
+yuki: { url: "https://api.yuki-wabot.my.id", key: "YukiBot-MD" },
 axi: { url: "https://apiaxi.i11.eu", key: null },
 vreden: { url: "https://api.vreden.web.id", key: null },
 nekolabs: { url: "https://api.nekolabs.web.id", key: null },
