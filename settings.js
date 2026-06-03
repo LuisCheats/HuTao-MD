@@ -9,7 +9,7 @@ global.sessionName = 'Sessions/Owner'
 global.version = '^1.0 - Beta'
 global.dev = "LuisCheats"
 global.links = {
-api: 'celest.qzz.io',
+api: '',
 channel: "",
 github: "https://github.com/LuisCheats"
 }
@@ -19,7 +19,7 @@ global.my = {
 }
 
 global.mess = {
-socket: '《✧》 Este comando solo puede ser ejecutado por un Socket.',
+socket: 'Este comando solo puede ser ejecutado por un Socket.',
 admin: 'Este comando solo puede ser ejecutado por los Administradores del Grupo.',
 botAdmin: 'Este comando solo puede ser ejecutado si el Socket es Administrador del Grupo.'
 }
