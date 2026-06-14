@@ -191,16 +191,3 @@ export default async (client, m) => {
   }
   level(m);
 };
-
-// Registrar el Service Worker desde tu script principal
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js')
-      .then(function(registration) {
-        console.log('Service Worker activo en el alcance: ', registration.scope);
-      })
-      .catch(function(err) {
-        console.error('Error al registrar el Service Worker: ', err);
-      });
-  });
-}
