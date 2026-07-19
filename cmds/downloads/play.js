@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import { getBuffer } from '../../core/message.js'
 
 // Configuración del newsletter
-const newsletterJid = '120363427395193986@newsletter'
+const newsletterJid = '120363428757227223@newsletter'
 const newsletterName = '𝓚𝔂𝓸𝓴𝓸-𝓜𝓓 𝓒𝓱𝓪𝓷𝓷𝓮𝓵'
 
 export default {
