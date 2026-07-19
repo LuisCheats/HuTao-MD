@@ -1,4 +1,4 @@
-import fs from 'fs'
+  import fs from 'fs'
 import fetch from 'node-fetch'
 import exif from '../../core/exif.js'
 const { writeExif } = exif
@@ -6,7 +6,7 @@ const { writeExif } = exif
 export default {
   command: ['sticker', 's'],
   category: 'stickers',
-  run: async ({ msg, sock, args, command, text, usedPrefix: prefix }) => {
+  run: async ({ msg, client, args, command, text, usedPrefix: prefix }) => {
     try {
       const quoted = msg.quoted ? msg.quoted : msg
       const mime = (quoted.msg || quoted).mimetype || ''
@@ -24,14 +24,14 @@ export default {
         const media = { mimetype: mime, data: buffer }
         const metadata = { packname: pack, author: author, categories: [''] }
         const stickerPath = await writeExif(media, metadata)
-        await sock.sendMessage(msg.chat, { sticker: { url: stickerPath } }, { quoted: msg })
+        await client.sendMessage(msg.chat, { sticker: { url: stickerPath } }, { quoted: msg })
         fs.unlinkSync(stickerPath)
       } else if (/video/.test(mime)) {
         if ((quoted.msg || quoted).seconds > 20) return msg.reply('❖ El video no puede ser muy largo')
         let buffer = await quoted.download()
         const tmpFile = `./lib/system/tmp/video-${Date.now()}.mp4`
         fs.writeFileSync(tmpFile, buffer)
-        await sock.sendVideoAsSticker(msg.chat, tmpFile, msg, { packname: pack, author: author })
+        await client.sendVideoAsSticker(msg.chat, tmpFile, msg, { packname: pack, author: author })
         fs.unlinkSync(tmpFile)
       } else if (args[0] && isUrl(args[0])) {
         const url = args[0]
@@ -41,10 +41,10 @@ export default {
         const media = { mimetype: 'image/webp', data: buffer }
         const metadata = { packname: pack, author: author, categories: [''] }
         const stickerPath = await writeExif(media, metadata)
-        await sock.sendMessage(msg.chat, { sticker: { url: stickerPath } }, { quoted: msg })
+        await client.sendMessage(msg.chat, { sticker: { url: stickerPath } }, { quoted: msg })
         fs.unlinkSync(stickerPath)
       } else {
-        return sock.reply(msg.chat, `❀ Por favor, envía una imagen, video o URL para hacer un sticker.`, msg)
+        return client.reply(msg.chat, `❀ Por favor, envía una imagen, video o URL para hacer un sticker.`, msg)
       }
     } catch (e) {
       return msg.reply(msgglobal)
