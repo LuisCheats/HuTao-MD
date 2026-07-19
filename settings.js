@@ -6,12 +6,12 @@ global.owner = ['50765836410', '']
 global.botNumber = ''
 
 global.sessionName = 'Sessions/Owner'
-global.version = '^1.0 - Beta'
-global.dev = "LuisCheats"
+global.version = '^2.0 - Beta'
+global.dev = "luisxitq"
 global.links = {
 api: '',
 channel: "",
-github: "https://github.com/LuisCheats"
+github: "https://github.com/luisxitq"
 }
 global.my = {
   ch: '120363427395193986@newsletter',
