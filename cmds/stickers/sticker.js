@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
 import fetch from 'node-fetch';
-import exif from '../../core/exif.js';
+import exif from '../../lib/exif.js';
 const { writeExif } = exif;
 
 export default {
@@ -21,7 +21,7 @@ export default {
       const name = user.name;
       const meta1 = user.metadatos ? String(user.metadatos).trim() : '';
       const meta2 = user.metadatos2 ? String(user.metadatos2).trim() : '';
-      let texto1 = meta1 ? meta1 : `Ig: Lzzin.xyz`;
+      let texto1 = meta1 ? meta1 : `ᴋᴀᴏʀᴜᴋᴏ ✌🏻 Wᴀʙᴏᴛ`;
       let texto2 = meta1 ? (meta2 ? meta2 : '') : `@${name}`;
       let urlArg = null;
       let argsWithoutUrl = [];
