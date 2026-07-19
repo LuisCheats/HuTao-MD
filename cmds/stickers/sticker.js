@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
 import fetch from 'node-fetch';
-import exif from '#core/exif';
-import db from '#db';
+import exif from '/core/exif';
+import db from '/db';
 const { writeExif } = exif;
 
 export default {
