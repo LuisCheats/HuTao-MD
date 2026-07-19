@@ -1,4 +1,3 @@
-import db from "db"
 import fs from 'fs'
 import fetch from 'node-fetch'
 import exif from '../../core/exif.js'
