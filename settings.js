@@ -6,7 +6,7 @@ global.owner = ['50765836410', '']
 global.botNumber = ''
 
 global.sessionName = 'Sessions/Owner'
-global.version = '^2.0 - Beta'
+global.version = '^1.5 - Beta'
 global.dev = "luisxitq"
 global.links = {
 api: '',
